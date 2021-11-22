@@ -8,7 +8,7 @@ export default {
     components : {PageTitle},
     created() {
         if (!this.$isLogin()) {
-            //return this.$router.push({ path : "/login"});
+            return this.$router.push({ path : "/login"});
         }
     },
 }

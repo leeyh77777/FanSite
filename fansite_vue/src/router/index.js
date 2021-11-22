@@ -1,11 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import Main from '../views/Main.vue'
+import Join from '../views/member/Join.vue'
+import MyInfo from '../views/member/MyInfo.vue'
+import Login from '../views/member/Login.vue'
+import Logout from '../views/member/Logout.vue'
 
 import NewsAdd from '../views/news/Add.vue'
 import NewsView from '../views/news/View.vue'
 import NewsList from '../views/news/List.vue'
 import NewsEdit from '../views/news/Edit.vue'
-import NewsTest from '../views/news/test.vue'
 
 
 
@@ -13,7 +16,27 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Main
+  },
+  {
+    path: '/join',
+    name : 'Member Join',
+    component: Join
+  },
+  {
+    path: '/login',
+    name: 'Member Login',
+    component: Login
+  },
+  {
+    path: '/logout',
+    name: "Member Logout",
+    component: Logout
+  },
+  {
+    path: '/my_info',
+    name: "Member MyInfo",
+    component: MyInfo
   },
   {
     path: '/news/add',
@@ -34,11 +57,6 @@ const routes = [
     path: '/news/edit',
     name: 'News Edit',
     component: NewsEdit
-  },
-  {
-    path: '/news/test',
-    name: 'News Test',
-    component: NewsTest
   }
 ]
 

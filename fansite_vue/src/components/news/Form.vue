@@ -1,7 +1,7 @@
 <template>
     <form id='frmNews' ref="frmNews" autocomplete="off" @submit="formSubmit($event)">
         <input type="hidden" name="mode" :value="mode">
-        <input type="hidden" name="mode != 'add'">
+        <input type="hidden" name="idx" :value="news.idx" v-if="mode != 'add'">
         <dl>
             <dt>Types Of News</dt>
         <dd>
@@ -32,7 +32,7 @@
     </form>
     <MessagePopup ref='popup' :message="message" />
 </template>
-<!--
+
 <script>
 import news from "../../models/news.js"
 import MessagePopup from "../../components/common/Message.vue"
@@ -73,15 +73,22 @@ export default {
             let result = {};
             let idx = 0;
             if (this.mode == 'add') { // 뉴스 추가
-                result = await this.$addNews(fromData);
+                result = await this.$addNews(formData);
                 idx = result.data.idx;
             } else { // 뉴스 수정
                 result = await this.$editNews(formData);
                 idx = this.$route.query.idx;
             }
             
+            if (result.success) {
+                this.$router.push({ path : "/news/view", query : { idx }});
+                return;
+            }
+           if (result.message) {
+               this.$showMessage(this, result.message);
+           }
+            
         }
     }
 }
 </script>
--->

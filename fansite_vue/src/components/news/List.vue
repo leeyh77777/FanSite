@@ -23,13 +23,13 @@ export default {
     async mounted() {
         switch(this.status) {
             case "actor" : 
-                this.title = "연기자 아이유";
+                this.title = "Actor IU";
                 break;
             case "singer" : 
-                this.title = "가수 아이유";
+                this.title = "Singer IU";
                 break;
             default : 
-                this.title = "기타";
+                this.title = "etc";
         }
         this.list = await this.$getList(this.status);
     },

@@ -1,6 +1,6 @@
 <template>
-<PageTitle>뉴스 목록</PageTitle>
-<router-link to="/news/add" class='add_news'>뉴스 추가</router-link>
+<PageTitle>News List</PageTitle>
+<router-link to="/news/add" class='add_news'>News Add</router-link>
 <List status="actor" />
 <List status="singer" />
 <List status="etc" />
