@@ -1,11 +1,12 @@
 # IU FanSite
+* PHP로 구현된 FanSite (<http://dydhyun.cafe24.com/>)
+* NODE.JS로 구현된 FanSite (<http://dydhyun.cafe24app.com/>)
 ## 개요
 ### 1. 서비스 내용 
 1. IU 프로필
 2. IU 뉴스
 3. 회원들 간 커뮤니케이션 제공
-* PHP로 구현된 FanSite (<http://dydhyun.cafe24.com/>)
-* NODE.JS로 구현된 FanSite (<http://dydhyun.cafe24app.com/>)
+
 ### 2. 적용기술
 
 
