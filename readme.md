@@ -3,7 +3,7 @@
 ```
 1. 서비스 내용 
 
-  * PHP로 구현된 FanSite
+  * PHP로 구현된 FanSite <http://dydhyun.cafe24.com/>
   * NODE.JS로 구현된 FanSite <http://dydhyun.cafe24app.com/>
 2. 적용기술
 
