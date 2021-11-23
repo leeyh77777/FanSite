@@ -4,8 +4,8 @@
 ```
 
 ```
-* PHP로 구현된 FanSite <http://dydhyun.cafe24.com/>
-* NODE.JS로 구현된 FanSite <http://dydhyun.cafe24app.com/>
+* PHP로 구현된 FanSite (<http://dydhyun.cafe24.com/>)
+* NODE.JS로 구현된 FanSite (<http://dydhyun.cafe24app.com/>)
 2. 적용기술
 
 3. 각 페이지별 소개
