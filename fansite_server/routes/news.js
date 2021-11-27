@@ -84,7 +84,7 @@ router.use(async (req, res) => {
 				returnData = result;
 				break;
 			default :
-				if (data.origin != 'front') {
+				if (req.method.toLowerCase() == 'GET' && data.origin != 'front') {
 					return res.redirect('/');
 				}
 		}

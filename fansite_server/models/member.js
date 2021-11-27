@@ -1,8 +1,6 @@
-const { sequelize, Sequelize : { QueryTYpes } } = require("./index");
+const { sequelize, Sequelize : { QueryTypes } } = require("./index");
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
-const { QueryTypes } = require('sequelize/types');
-const { UPDATE } = require('sequelize/types/lib/query-types');
 
 /**
  * 회원 models

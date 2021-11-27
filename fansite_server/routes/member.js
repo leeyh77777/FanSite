@@ -4,7 +4,7 @@ const router = require('express').Router();
 router.use(async (req, res) => {
 	const mode = req.body.mode || req.query.mode;
 	const data = req.body.mode?req.body:req.query;
-	
+	//console.log(req.body);
 	let success = false;
 	let returnData = {};
 	let message = "";
@@ -46,7 +46,7 @@ router.use(async (req, res) => {
 				returnData = memberData;
 				break;
 			default : 
-				if (data.origin != 'front') {
+				if (req.method.toLowerCase() == 'GET' && data.origin != 'front') {
 					return res.redirect('/');
 				}
 		}
