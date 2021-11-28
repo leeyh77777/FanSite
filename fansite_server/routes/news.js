@@ -46,7 +46,7 @@ router.use(async (req, res) => {
 					throw new Error('본인이 작성한 작업내역만 삭제 가능합니다.');
 				}
 				
-				result = await news.delete(data.idx);
+				result = await news.deleteNews(data.idx);
 				if (!result) {
 					throw new Error('작업삭제 실패하였습니다');
 				}
