@@ -24,7 +24,7 @@
         <dl>
             <dt>Content</dt>
             <dd>
-                <textarea neme="content" :value="news.content"></textarea>
+                <textarea name="content" :value="news.content"></textarea>
             </dd>
         </dl>
         <input type="submit" value="뉴스 등록" v-if="mode == 'add'">
@@ -68,7 +68,7 @@ export default {
     },
     methods : {
         async formSubmit(e) {
-            e.preventDeefault();
+            e.preventDefault();
             const formData = new FormData(this.$refs.frmNews);
             let result = {};
             let idx = 0;

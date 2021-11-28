@@ -13,7 +13,7 @@ router.use(async (req, res) => {
 		switch (mode) {
 			/** 뉴스 추가 */
 			case "add": 
-				const idx = await news.add(data);
+				const idx = await news.addNews(data);
 				if (!idx) {
 					throw new Error('뉴스등록 실패하였습니다.');
 				}
@@ -23,7 +23,7 @@ router.use(async (req, res) => {
 				break;
 			/** 뉴스 수정 */
 			case "edit" : 
-				result = await news.edit(data);
+				result = await news.editNews(data);
 				if (!result) {
 					throw new Error('뉴스수정 실패하였습니다');
 				}
