@@ -63,7 +63,7 @@ router.use(async (req, res) => {
 				const status = data.status || "etc";
 				result = await news.getList(memNo, status);
 				if (!result) {
-					throw new Error('작업 목록 조회 실패');
+					throw new Error('뉴스 목록 조회 실패');
 				}
 				
 				success = true;

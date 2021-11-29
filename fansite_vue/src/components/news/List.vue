@@ -1,7 +1,9 @@
 <template>
     <div class='stit'>{{ title }}</div>
     <ul class='news_list'>
+        
         <li :key="i" v-for="(li, i) in list" @click="goView(li.idx)">{{ li.subject }}</li>
+
     </ul>
 </template>
 <script>
@@ -17,7 +19,7 @@ export default {
     props : {
         status : {
             type : String,
-            default : "etc",
+            default : "Actor IU",
         }
     },
     async mounted() {
@@ -31,6 +33,7 @@ export default {
             default : 
                 this.title = "etc";
         }
+
         this.list = await this.$getList(this.status);
     },
     methods : {

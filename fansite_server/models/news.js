@@ -93,7 +93,7 @@ const news = {
 	*/
 	async getList(memNo, status) {
 		try {
-			const sql = `SELECT * FROM newslist WHERE status = :status ORDER BY a.regDt DESC`;
+			const sql = `SELECT * FROM newslist WHERE status = :status ORDER BY regDt DESC`;
 			const replacements = { status };						
 			const rows = await sequelize.query(sql, {
 					replacements,

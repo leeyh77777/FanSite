@@ -34,7 +34,7 @@ export default {
             if (result.success) {
                 this.memId = "";
                 this.memPw = "";
-               this.$router.push({ path : "/news/list"});
+               this.$router.push({ path : "/"});
             }
             if (result.message) {
                 this.$showMessage(this, result.message);

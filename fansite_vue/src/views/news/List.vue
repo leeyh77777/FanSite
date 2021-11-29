@@ -1,6 +1,7 @@
 <template>
 <PageTitle>News List</PageTitle>
 <router-link to="/news/add" class='add_news'>Add News</router-link>
+
 <List status="actor" />
 <List status="singer" />
 <List status="etc" />
@@ -14,6 +15,7 @@ export default {
         if (!this.$isLogin() && this.$getToken()) {
             location.reload();
         }
-    },
+    }
+    
 }
 </script>

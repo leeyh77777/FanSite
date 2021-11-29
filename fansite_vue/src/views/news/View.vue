@@ -2,22 +2,25 @@
 <PageTitle>뉴스 내용</PageTitle>
 <div class='news_view'>
     <dl>
-        <dt>Types Of News</dt>
+        <dt class='stit'>Types Of news</dt>
         <dd v-if="view.status == 'actor'">Actor IU</dd>
         <dd v-else-if="view.status == 'singer'">Singer IU</dd>
         <dd v-else>etc</dd>
     </dl>
     <dl>
-        <dt>등록일</dt>
+        <dt class='stit'>Registration date</dt>
         <dd>{{ view.regDt }}</dd>
     </dl>
     <dl>
-        <dt>작업명</dt>
+        <dt class='stit'>News title</dt>
         <dd>{{ view.subject }}</dd>
     </dl>
-    
-    <div v-html="view.contentHtml" class='content'></div>
-    
+    <dl>
+        <dt class='stit'>The news</dt>
+        <dd>
+        <div v-html="view.contentHtml" class='content'></div>
+        </dd>
+        </dl>
     <div class='btns'>
         <button type="button" @click="goLink('add')">추가</button>
         <button type="button" @click="goLink('edit')">수정</button>
