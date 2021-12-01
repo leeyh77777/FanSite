@@ -1,5 +1,7 @@
 <template>
+<div class="p_tit">
 <PageTitle>News List</PageTitle>
+</div>
 <router-link to="/news/add" class='add_news'>Add News</router-link>
 
 <List status="actor" />

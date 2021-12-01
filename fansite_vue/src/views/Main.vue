@@ -1,31 +1,30 @@
 <template>
   
   <div class="home">
-    <div class="stit">IU is</div>
     <img class="logo_img" alt="Vue logo" src="../assets/logo.png">
+    <div class="stit">Profile</div>
     <div>
     <table>
-      <tbody>
-        <tr>본명
+      <tbody class="table">
+        <tr>
+        <th>본명</th>
         <td>이지은</td>
         </tr>
-        <tr>생년월일
+        <tr>
+        <th>생년월일</th>
         <td>1993년 5월 16일</td>
         </tr>
-        <tr>키
+        <tr>
+          <th>키</th>
           <td>161.8cm</td>
         </tr>
-        <tr>혈액형
+        <tr>
+          <th>혈액형</th>
           <td>O형</td>
         </tr>
-        <tr>신발 사이즈
-          <td>225mm</td>
-        </tr>
-        <tr>MBTI
-          <td>INFJ</td>
-        </tr>
-        <tr>링크
-          <td>
+        <tr>
+          <th>링크</th>
+          <td class="link">
             <a href="https://www.instagram.com/dlwlrma/"><i class='xi-instagram'></i></a>
             <a href="https://twitter.com/_IUofficial"><i class='xi-twitter'></i></a>
             <a href="https://www.facebook.com/iu.loen"><i class='xi-facebook'></i></a>

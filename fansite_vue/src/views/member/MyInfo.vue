@@ -1,5 +1,7 @@
 <template>
+    <div class="p_tit">
     <PageTitle>회원정보수정</PageTitle>
+    </div>
     <Form :mode="mode" :member="member" />
 </template>
 <script>

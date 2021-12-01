@@ -1,10 +1,14 @@
 <template>
-    <PageTitle>로그인</PageTitle>
+    <div class="p_tit">
+    <PageTitle>Login</PageTitle>
+    </div>
     <form ref="frmLogin" autocomplete="off" @submit="formSubmit($event)">
         <input type="text" name="memId" placeholder="아이디" v-model="memId"><br>
         <input type="password" name="memPw" placeholder="비밀번호" v-model="memPw"><br>
-        <input type="submit" value="로그인">
+        <input type="submit" value="로그인" class="s_btn">
+        <input type="button" onclick="location.href='/join'" class="s_btn" value="회원가입">
     </form>
+    
     <MessagePopup ref='popup' :message="message" />
 </template>
 <script>

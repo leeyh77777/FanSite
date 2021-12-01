@@ -1,5 +1,7 @@
 <template>
+    <div class="p_tit">
     <PageTitle>회원가입</PageTitle>
+    </div>
     <Form :mode="mode" />
     
 </template>

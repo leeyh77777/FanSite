@@ -8,8 +8,8 @@
     <input type="password" name="memPwRe" placeholder='비밀번호확인'><br>
     <input type="text" name="memNm" placeholder='회원명' :value="member.memNm"><br>
     <input type="text" name="cellPhone" placeholder="휴대전화번호" :value="member.cellPhone"><br>
-    <input type="submit" value="가입하기" v-if="mode == 'join'">
-    <input type="submit" value="수정하기" v-else>
+    <input type="submit" value="가입하기" v-if="mode == 'join'" class="s_btn">
+    <input type="submit" value="수정하기" class="s_btn" v-else >
 </form>
 <MessagePopup ref='message_popup' :message="message" />
 </template>

@@ -1,5 +1,7 @@
 <template>
+<div class="p_tit">
 <PageTitle>뉴스 내용</PageTitle>
+</div>
 <div class='news_view'>
     <dl>
         <dt class='stit'>Types Of news</dt>
