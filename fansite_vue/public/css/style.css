@@ -26,8 +26,30 @@ body {
 }
 
 .p_tit {
+	margin: 20px 0;
 	text-align: center;
-	
+	font-style: italic;
+	font-weight: bold;
+	font-size: 25px;
+	color: #5E1C31;
+}
+
+.n_tit {
+	margin: 20px 0;
+	text-align: center;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 25px;
+	color: #E44A5A;
+}
+
+.mtit {
+	margin: 20px 0;
+	text-align: center;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 25px;
+	color: #FEE493
 }
 
 .stit {
@@ -35,7 +57,8 @@ body {
 	font-style: italic;
 	font-weight: bold;
 	font-size: 25px;
-	color: var(--accet-color);
+	color: #2C3037;
+	margin-top: 15px;
 
 }
 
@@ -53,7 +76,23 @@ li {
     list-style: none; 
 }
 
+/** image */
 .logo_img {
+	display: block;
+	margin: auto;
+}
+
+.login_img {
+	display: block;
+	margin: auto;
+}
+
+.news_img {
+	display: block;
+	margin: auto;
+}
+
+.myinfo_img {
 	display: block;
 	margin: auto;
 }
@@ -124,6 +163,7 @@ input[type='password'] {
 
 /** Navi */
 #nav {
+	width: 100%;
 	position: fixed;
 	display: flex;
 	flex-direction: row;
@@ -142,7 +182,7 @@ input[type='password'] {
 
 .htit:hover {
 	background-color: var(--body-color);
-
+	color: #ffffff;
 }
 
 .hline {

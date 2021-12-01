@@ -1,7 +1,6 @@
 <template>
-    <div class="p_tit">
-    <PageTitle>Login</PageTitle>
-    </div>
+    <img class="login_img" src="../../assets/login.png">
+    <div class="p_tit">Login</div>
     <form ref="frmLogin" autocomplete="off" @submit="formSubmit($event)">
         <input type="text" name="memId" placeholder="아이디" v-model="memId"><br>
         <input type="password" name="memPw" placeholder="비밀번호" v-model="memPw"><br>
@@ -12,11 +11,10 @@
     <MessagePopup ref='popup' :message="message" />
 </template>
 <script>
-import PageTitle from '../../components/PageTitle.vue'
 import MessagePopup from '../../components/common/Message.vue'
 import member from '../../models/member.js'
 export default {
-    components : {PageTitle, MessagePopup},
+    components : {MessagePopup},
     mixins : [member],
     created() {
         if (this.$isLogin()) {

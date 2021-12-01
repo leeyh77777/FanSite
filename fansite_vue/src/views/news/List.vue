@@ -1,18 +1,15 @@
 <template>
-<div class="p_tit">
-<PageTitle>News List</PageTitle>
-</div>
-<router-link to="/news/add" class='add_news'>Add News</router-link>
+<img class="news_img" src="../../assets/news.png">
+<div class="n_tit">Press</div>
 
 <List status="actor" />
 <List status="singer" />
 <List status="etc" />
 </template>
 <script>
-import PageTitle from "../../components/PageTitle.vue"
 import List from "../../components/news/List.vue"
 export default {
-    components : {PageTitle, List},
+    components : {List},
     created() {
         if (!this.$isLogin() && this.$getToken()) {
             location.reload();

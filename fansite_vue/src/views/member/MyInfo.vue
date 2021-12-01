@@ -1,14 +1,12 @@
 <template>
-    <div class="p_tit">
-    <PageTitle>회원정보수정</PageTitle>
-    </div>
+    <img class="login_img" src="../../assets/myinfo.png">
+    <div class="mtit">Edit account info</div>
     <Form :mode="mode" :member="member" />
 </template>
 <script>
-import PageTitle from "../../components/PageTitle.vue"
 import Form from "../../components/member/Form.vue"
 export default {
-    components: {PageTitle, Form},
+    components: {Form},
     created() {
         if (!this.$isLogin()) {
             this.$router.push({ path : "/login" })

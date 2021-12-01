@@ -25,9 +25,9 @@
         <tr>
           <th>링크</th>
           <td class="link">
-            <a href="https://www.instagram.com/dlwlrma/"><i class='xi-instagram'></i></a>
-            <a href="https://twitter.com/_IUofficial"><i class='xi-twitter'></i></a>
-            <a href="https://www.facebook.com/iu.loen"><i class='xi-facebook'></i></a>
+            <a href="https://www.instagram.com/dlwlrma/"><i class='xi-instagram'></i></a>&nbsp;
+            <a href="https://twitter.com/_IUofficial"><i class='xi-twitter'></i></a>&nbsp;
+            <a href="https://www.facebook.com/iu.loen"><i class='xi-facebook'></i></a>&nbsp;
             <a href="https://www.youtube.com/c/dlwlrma"><i class='xi-youtube-play'></i></a>
           </td>
         </tr>
