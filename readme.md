@@ -9,7 +9,12 @@
 
 ### 2. 적용기술
 <img src="https://img.shields.io/badge/vue.js-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white">
-
+<img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=node.js&logoColor=white">
+<img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+<img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
+<img src="https://img.shields.io/badge/html-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+<img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+<img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
 
 ### 3. 각 페이지별 소개
 
@@ -18,7 +23,6 @@
 main.js 로 페이지 초기화 설정
 const app = createApp(App) -> vue 인스턴스생성
 init(app) -> init.js 에 초기화 설정 주입
-
 app.use(router).mount(#app) -> 라우터 인스턴스 생성 app.vue에 마운트
 ```
 import { createApp } from 'vue'
