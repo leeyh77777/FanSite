@@ -2,7 +2,7 @@
   
   <div class="home">
     <img class="logo_img" alt="Vue logo" src="../assets/logo.png">
-    <div class="stit">Profile</div>
+    <div class="maintit">Profile</div>
     <div>
     <table>
       <tbody class="table">

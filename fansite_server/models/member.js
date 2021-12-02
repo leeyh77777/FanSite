@@ -14,6 +14,8 @@ const member = {
     async join(data) {
         await this.checkJoinData(data);
 
+		
+
         try {
             const sql = `INSERT INTO member (memId, memPw, memNm, cellPhone)
                                         VALUES (:memId, :memPw, :memNm, :cellPhone)`;

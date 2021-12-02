@@ -5,18 +5,19 @@
 	--button-color : #9b9b9b;
 	--accet-color: #621C31;
 }
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap');
 /** 공통 */
 *{
+	font-family: 'Dongle', sans-serif;
 	box-sizing: border-box;
 	transition: all 1s;
 	outline: none;
-	font-family: 'Nanum Gothic', sans-serif;
+	
 	
 }
 
 html {
-	font-size: 13px;
+	font-size: 1.2rem;
 }
 
 body {
@@ -25,12 +26,16 @@ body {
 	background-color: var(--body-color);
 }
 
+.inline {
+	display: block;
+}
+
 .p_tit {
 	margin: 20px 0;
 	text-align: center;
 	font-style: italic;
 	font-weight: bold;
-	font-size: 25px;
+	font-size: 25;
 	color: #5E1C31;
 }
 
@@ -52,14 +57,41 @@ body {
 	color: #FEE493
 }
 
-.stit {
+.maintit {
 	text-align: center;
 	font-style: italic;
 	font-weight: bold;
 	font-size: 25px;
 	color: #2C3037;
 	margin-top: 15px;
+}
 
+.stit {
+	padding-left: 30px;
+	text-align: left;
+	color: #ffffff;
+	border-bottom: 1px solid;
+	font-size: 25px;
+
+}
+
+.nt_tit {
+	margin: 20px 0;
+	text-align: center;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 25px;
+	color: #E44A5A;
+}
+
+.inline {
+	display: inline;
+}
+
+.bg_wh {
+	margin-left: 0;
+	padding: 10px 0 10px 40px;
+	background-color: white;
 }
 
 a{
@@ -74,6 +106,21 @@ ul {
 
 li {
     list-style: none; 
+}
+
+.news_list li {
+	padding-left: calc(20%);
+	text-align: left;
+	font-size: 15px;
+	font-weight: normal;
+	font-style: normal;
+	color: var(--text-color);
+	cursor: pointer;
+}
+
+.news_list li:hover {
+	background-color: #ffffff;
+	border-bottom: 1px solid var(--accet-color);
 }
 
 /** image */
@@ -132,7 +179,7 @@ input[type='text'],
 input[type='password'] {
 	display: block;
 	color: var(--text-color);
-    width: 90%;
+    width: 50%;
     height: 55px;
     font-size: 1.35rem;
     border: 1px solid #d5d5d5;
@@ -167,17 +214,17 @@ input[type='password'] {
 	position: fixed;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-evenly;
+	justify-content: space-around;
 	align-items: center;
 	background-color: #ffffff;
 	height: 55px;
-	font-size: 15px;
+	font-size: 25px;
 }
 
 .htit {
-	padding: 22.5px 0;
+	padding-top: 10px ;
+	text-align: center;
 	height: 55px;
-	vertical-align: middle;
 }
 
 .htit:hover {

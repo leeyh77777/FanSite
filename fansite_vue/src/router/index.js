@@ -10,6 +10,11 @@ import NewsView from '../views/news/View.vue'
 import NewsList from '../views/news/List.vue'
 import NewsEdit from '../views/news/Edit.vue'
 
+// import BoardList from '../views/board/list.vue'
+// import BoardView from '../views/board/view.vue'
+// import BoardWrite from '../views/board/write.vue'
+// import BoardUpdate from '../views/board/update.vue'
+// import BoardDelete from '../views/board/delete'
 
 
 
@@ -59,6 +64,31 @@ const routes = [
     name: 'News Edit',
     component: NewsEdit
   }
+  // {
+  //   path: 'board/list',
+  //   name: 'Board List',
+  //   component: BoardList
+  // },
+  // {
+  //   path: 'board/view',
+  //   name: 'Board View',
+  //   component: BoardView
+  // },
+  // {
+  //   path: 'board/write',
+  //   name: 'Board Write',
+  //   component: BoardWrite
+  // },
+  // {
+  //   path: 'board/update',
+  //   name: 'Board Update',
+  //   component: BoardUpdate
+  // },
+  // {
+  //   path: 'board/delete',
+  //   name: 'Board Delete',
+  //   component: BoardDelete
+  // }
 ]
 
 const router = createRouter({

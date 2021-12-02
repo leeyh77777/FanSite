@@ -10,7 +10,7 @@ export default {
     components: {Form},
     created() {
         if (this.$isLogin()) {
-            this.$router.push({ path : "/my_info" })
+            this.$router.push({ path : "/login" })
         }
     },
     data() {

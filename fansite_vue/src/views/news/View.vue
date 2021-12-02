@@ -1,21 +1,21 @@
 <template>
 <div class="p_tit">
-<PageTitle>뉴스 내용</PageTitle>
+<img class="news_img" src="../../assets/news.png">
+<div class="n_tit inline">
+    The news
+        <dd class="inline" v-if="view.status == 'actor'">(Actor IU)</dd>
+        <dd class="inline" v-else-if="view.status == 'singer'">(Singer IU)</dd>
+        <dd class="inline" v-else>(etc)</dd>
+</div>
 </div>
 <div class='news_view'>
+
     <dl>
-        <dt class='stit'>Types Of news</dt>
-        <dd v-if="view.status == 'actor'">Actor IU</dd>
-        <dd v-else-if="view.status == 'singer'">Singer IU</dd>
-        <dd v-else>etc</dd>
-    </dl>
-    <dl>
-        <dt class='stit'>Registration date</dt>
-        <dd>{{ view.regDt }}</dd>
+        <dd style="float:right; padding-right:20px">date {{ view.regDt }}</dd><br>
     </dl>
     <dl>
         <dt class='stit'>News title</dt>
-        <dd>{{ view.subject }}</dd>
+        <dd class=" bg_wh">{{ view.subject }}</dd>
     </dl>
     <dl>
         <dt class='stit'>The news</dt>
@@ -34,11 +34,10 @@
 <MessagePopup ref="popup" :message="message" />
 </template>
 <script>
-import PageTitle from "../../components/PageTitle.vue"
 import MessagePopup from "../../components/common/Message.vue"
 import news from "../../models/news.js"
 export default {
-    components : {PageTitle, MessagePopup},
+    components : {MessagePopup},
     mixins : [news],
     data() {
         return {
