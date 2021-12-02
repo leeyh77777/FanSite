@@ -8,6 +8,7 @@
 3. 회원들 간 커뮤니케이션 제공
 
 ### 2. 적용기술
+<img src="https://img.shields.io/badge/vue.js-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white">
 
 
 ### 3. 각 페이지별 소개
@@ -15,9 +16,10 @@
 ## 핵심기술
 ### 1. 페이지 초기화
 main.js 로 페이지 초기화 설정
-const app = createApp(App) ->  vue 인스턴스생성
-init(app)  -> init.js 에 초기화 설정 주입
-app.use(router).mount(#app)  -> 라우터 인스턴스 생성 app.vue에 마운트
+const app = createApp(App) -> vue 인스턴스생성
+init(app) -> init.js 에 초기화 설정 주입
+
+app.use(router).mount(#app) -> 라우터 인스턴스 생성 app.vue에 마운트
 ```
 import { createApp } from 'vue'
 import App from './App.vue'
