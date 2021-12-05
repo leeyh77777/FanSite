@@ -1,5 +1,5 @@
 <template>
-    <img class="login_img" src="../../assets/login.png">
+    <img class="login_img" src="../../assets/login.png" style="max-width:100%; height:auto;">
     <div class="p_tit">Login</div>
     <form ref="frmLogin" autocomplete="off" @submit="formSubmit($event)">
         <input type="text" name="memId" placeholder="아이디" v-model="memId"><br>

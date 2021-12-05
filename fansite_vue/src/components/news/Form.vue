@@ -24,7 +24,10 @@
         <dl>
             <dt>Content</dt>
             <dd>
-                <textarea name="content" :value="news.content"></textarea>
+                <div id="app">
+                    <ckeditor v-model="editorData" :config="editorConfig"></ckeditor>
+                </div>
+                <!-- <textarea name="content" :value="news.content"></textarea> -->
             </dd>
         </dl>
         <input type="submit" value="뉴스 등록" v-if="mode == 'add'">
@@ -39,9 +42,14 @@ import MessagePopup from "../../components/common/Message.vue"
 export default {
     mixins : [news],
     components : {MessagePopup},
+    name: 'app',
     data() {
             return {
             message : "",
+            editorData: '<p>Content of the editor.</p>',
+            editorConfig: {
+                // The configuration of the editor.
+            }
         };
     },
     computed : {

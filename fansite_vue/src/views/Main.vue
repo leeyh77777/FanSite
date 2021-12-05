@@ -1,7 +1,7 @@
 <template>
   
   <div class="home">
-    <img class="logo_img" alt="Vue logo" src="../assets/logo.png">
+    <img class="logo_img" alt="Vue logo" src="../assets/logo.png" style="max-width:100%; height:auto;">
     <div class="maintit">Profile</div>
     <div>
     <table>

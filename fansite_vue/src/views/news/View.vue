@@ -1,8 +1,8 @@
 <template>
 <div class="p_tit">
-<img class="news_img" src="../../assets/news.png">
+<img class="news_img" src="../../assets/news.png" style="max-width:100%; height:auto;"> 
 <div class="n_tit inline">
-    The news
+    The news<br>
         <dd class="inline" v-if="view.status == 'actor'">(Actor IU)</dd>
         <dd class="inline" v-else-if="view.status == 'singer'">(Singer IU)</dd>
         <dd class="inline" v-else>(etc)</dd>
@@ -10,9 +10,9 @@
 </div>
 <div class='news_view'>
 
-    <dl>
-        <dd style="float:right; padding-right:20px">date {{ view.regDt }}</dd><br>
-    </dl>
+    
+    
+    
     <dl>
         <dt class='stit'>News title</dt>
         <dd class=" bg_wh">{{ view.subject }}</dd>

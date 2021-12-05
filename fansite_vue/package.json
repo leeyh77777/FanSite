@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "axios": "^0.24.0",
+    "ckeditor4-vue": "^1.4.0",
     "core-js": "^3.6.5",
     "i": "^0.3.7",
     "npm": "^8.1.4",

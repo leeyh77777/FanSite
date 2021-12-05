@@ -1,5 +1,5 @@
 <template>
-    <img class="login_img" src="../../assets/login.png">
+    <img class="login_img" src="../../assets/login.png" style="max-width:100%; height:auto;">
     <div class="p_tit">Join</div>
     <Form :mode="mode" />
     

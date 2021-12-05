@@ -16,8 +16,6 @@ import NewsEdit from '../views/news/Edit.vue'
 // import BoardUpdate from '../views/board/update.vue'
 // import BoardDelete from '../views/board/delete'
 
-
-
 const routes = [
   {
     path: '/',
