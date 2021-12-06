@@ -1,18 +1,6 @@
 <template>
-<div class="p_tit">
-<img class="news_img" src="../../assets/news.png" style="max-width:100%; height:auto;"> 
-<div class="n_tit inline">
-    The news<br>
-        <dd class="inline" v-if="view.status == 'actor'">(Actor IU)</dd>
-        <dd class="inline" v-else-if="view.status == 'singer'">(Singer IU)</dd>
-        <dd class="inline" v-else>(etc)</dd>
-</div>
-</div>
-<div class='news_view'>
 
-    
-    
-    
+<div class='news_view'>
     <dl>
         <dt class='stit'>News title</dt>
         <dd class=" bg_wh">{{ view.subject }}</dd>
@@ -27,7 +15,7 @@
         <button type="button" @click="goLink('add')">추가</button>
         <button type="button" @click="goLink('edit')">수정</button>
         <button type="button" @click="deleteNews">삭제</button>
-        <button type="button" @click="goLink('list')">목록</button>
+        <button class="btn_news" type="button" @click="goLink('list')">목록</button>
     </div>
 </div>
 

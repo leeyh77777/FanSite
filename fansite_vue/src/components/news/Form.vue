@@ -24,10 +24,7 @@
         <dl>
             <dt>Content</dt>
             <dd>
-                <div id="app">
-                    <ckeditor v-model="editorData" :config="editorConfig"></ckeditor>
-                </div>
-                <!-- <textarea name="content" :value="news.content"></textarea> -->
+             <ckeditor v-model="editorData" :config="editorConfig"></ckeditor>
             </dd>
         </dl>
         <input type="submit" value="뉴스 등록" v-if="mode == 'add'">
@@ -54,8 +51,11 @@ export default {
     },
     computed : {
         picked() {
-        return this.news.status || "etc";
-    }
+            return this.news.status || "etc";
+        }
+    },
+    mounted() {
+        
     },
     props : {
         mode : {
