@@ -14,13 +14,7 @@
 
 ## 핵심기술
 ### 1. 페이지 초기화
-main.js 로 페이지 초기화 설정
-
-const app = createApp(App) -> vue 인스턴스생성
-
-init(app) -> init.js 에 초기화 설정 주입
-
-app.use(router).mount(#app) -> 라우터 인스턴스 생성 app.vue에 마운트
+* main.js 로 페이지 초기화 설정
 ```
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -30,7 +24,9 @@ import init from './init.js'
 const app = createApp(App)
 init(app)
 app.use(router).mount('#app')
+/** app.use(router).mount(#app) -> 라우터 인스턴스 생성 app.vue에 마운트 */
 ```
+
 ### 2. 회원가입
 
 ### 3. 로그인
