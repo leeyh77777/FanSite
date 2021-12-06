@@ -22,8 +22,8 @@ import router from './router'
 import init from './init.js'
 
 const app = createApp(App)
-init(app)
-app.use(router).mount('#app')
+init(app) // bootstrap: 로그인 체크 mixin 처리
+app.use(router).mount('#app') // app.use(router).mount(#app) -> 라우터 인스턴스 생성 app.vue에 마운트
 /** app.use(router).mount(#app) -> 라우터 인스턴스 생성 app.vue에 마운트 */
 ```
 
