@@ -5,17 +5,6 @@ import MyInfo from '../views/member/MyInfo.vue'
 import Login from '../views/member/Login.vue'
 import Logout from '../views/member/Logout.vue'
 
-import NewsAdd from '../views/news/Add.vue'
-import NewsView from '../views/news/View.vue'
-import NewsList from '../views/news/List.vue'
-import NewsEdit from '../views/news/Edit.vue'
-
-import BoardList from '../views/board/list.vue'
-import BoardView from '../views/board/view.vue'
-import BoardWrite from '../views/board/write.vue'
-import BoardUpdate from '../views/board/update.vue'
-import BoardDelete from '../views/board/delete'
-
 const routes = [
   {
     path: '/',
@@ -45,47 +34,47 @@ const routes = [
   {
     path: '/news/add',
     name: 'News Add',
-    component: NewsAdd
+    component: () => import(/* webpackChunkName: "News Add" */ "../views/news/Add.vue"),
   },
   {
     path: '/news/view',
     name: 'News View',
-    component: NewsView
+    component: () => import(/* webpackChunkName: "News View" */ "../views/news/View.vue"),
   },
   {
     path: '/news/list',
     name: 'News List',
-    component: NewsList
+    component: () => import(/* webpackChunkName: "News List" */ "../views/news/List.vue"),
   },
   {
     path: '/news/edit',
     name: 'News Edit',
-    component: NewsEdit
+    component: () => import(/* webpackChunkName: "News Edit" */ "../views/news/Edit.vue"),
   },
   {
-    path: '/board/list',
+    path: '/board/add',
+    name: 'Board Add',
+    component: () => import(/* webpackChunkName: "Board Add" */ "../views/board/Add.vue"),
+  },
+  {
+    path: '/board',
     name: 'Board List',
-    component: BoardList
+    component: () => import(/* webpackChunkName: "Board List" */ "../views/board/List.vue"),
   },
   {
     path: '/board/view',
     name: 'Board View',
-    component: BoardView
+    component: () => import(/* webpackChunkName: "Board View" */ "../views/board/View.vue"),
   },
   {
-    path: '/board/write',
-    name: 'Board Write',
-    component: BoardWrite
-  },
-  {
-    path: '/board/update',
-    name: 'Board Update',
-    component: BoardUpdate
+    path: '/board/edit',
+    name: 'Board Edit',
+    component: () => import(/* webpackChunkName: "Board Edit" */ "../views/board/Edit.vue"),
   },
   {
     path: '/board/delete',
     name: 'Board Delete',
-    component: BoardDelete
+    component: () => import(/* webpackChunkName: "Board Delete" */ "../views/board/Delete.vue"),
   }
 ]
 

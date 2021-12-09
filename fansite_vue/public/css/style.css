@@ -292,3 +292,10 @@ input[type='password'] {
 		font-size: 1rem;
 	}
 }
+
+/**  에디터 디자인 */
+.ProseMirror { 
+	height: 500px; 
+	border: 1px solid #2C3037;
+	overflow-y: auto;
+}
