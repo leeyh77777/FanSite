@@ -67,7 +67,7 @@ export default {
 }
 
 .message_popup .message { 
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     height: 60px;
     padding: 10px 0;
     font-weight: bold;

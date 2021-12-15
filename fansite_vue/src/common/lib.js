@@ -7,13 +7,17 @@ export default {
             if (data && data instanceof FormData) {
                 data = this.$formDataToJson(data);
             }
+            
+            if (typeof data != 'object') {
+                return;
+            }
 
             if (this.$isLogin()) {
-                data.memNo = this.$getMember().memNo;
+                const member = this.$getMember();
+                data.memNo = member.memNo;
             }
             
             data.origin = "front";
-
             try {
                 const result = await axios({
                     method,
@@ -85,6 +89,47 @@ export default {
         /** 세션 스토리지 sessionId */
         $getToken() {
             return sessionStorage.getItem("sessionId");
+        },
+        /** 파일 업로드  */
+        $sendFile(file) {   
+            const apiURL =  this.$store.state.apiURL + "/file";
+            return new Promise((resolve, reject) => {
+                if (!file) {
+                    reject(new Error("파일이 존재하지 않습니다."));
+                    return;
+                }
+                
+                 const reader = new FileReader();
+                reader.onload = function() {
+                    if (reader.result) {
+                        const base64 = reader.result.split("base64,")[1];
+                        const data = {
+                            mode : "upload",
+                            fileName : file.name,
+                            fileType : file.type,
+                            data : base64,
+                        };
+                        
+                        axios({
+                            method : "POST",
+                            url : apiURL,
+                            data,
+                        })
+                        .then((result) => {
+                            resolve(result.data);
+                        })
+                        .catch((err) => {
+                            reject(err);
+                        });
+                    }
+                };
+
+                reader.onerror = function(err) {
+                    reject(err);
+                };
+
+                reader.readAsDataURL(file);
+            });
         }
     }
 }

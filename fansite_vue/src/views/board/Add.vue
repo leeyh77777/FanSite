@@ -1,12 +1,11 @@
 <template>
-    <PageTitle>게시글 등록</PageTitle>
+    <div class="b_tit">게시글 등록</div>
     <Form />
 </template>
 <script>
-import PageTitle from "../../components/PageTitle.vue"
 import Form from "../../components/board/Form.vue"
 export default {
-    components: { PageTitle, Form },
+    components: { Form },
     created() {
         if (!this.$isLogin()) {
             return this.$router.push({ path : "/login" });

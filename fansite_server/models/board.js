@@ -46,7 +46,7 @@ const board = {
     /** 게시글 보기 */
     async view(idx) {
         try {
-            const sql = `SELECT * FROM board WHERE idx = :idx`;
+            const sql = `SELECT * FROM board WHERE idx = ?`;
             const rows = await sequelize.query(sql, {
                 replacements : [idx],
                 type : QueryTypes.SELECT,
@@ -83,10 +83,6 @@ const board = {
         const info = await this.get(data.idx);
         if (!info) {
             throw new Error("수정할 게시글이 없습니다.");
-        }
-        
-        if (info.memNo != data.memNo) {
-            throw new Error("본인이 작성한 게시글내역만 수정 가능합니다.")
         }
 
         try {
@@ -137,3 +133,5 @@ const board = {
         }
     }
 };
+
+module.exports = board;

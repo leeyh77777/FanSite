@@ -3,7 +3,7 @@
 	--body-color: #DBD2D1;
 	--background-color: #B6ABAB;
 	--button-color : #9b9b9b;
-	--accet-color: #621C31;
+	--accent-color: #621C31;
 }
 @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap');
 /** 공통 */
@@ -47,6 +47,15 @@ body {
 	font-weight: bold;
 	font-size: 25px;
 	color: #E44A5A;
+}
+
+.b_tit {
+	margin: 20px 0;
+	text-align: center;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 25px;
+	color: #DDF8CF;
 }
 
 .mtit {
@@ -121,8 +130,15 @@ li {
 
 .news_list li:hover {
 	background-color: #ffffff;
-	border-bottom: 1px solid var(--accet-color);
+	border-bottom: 1px solid var(--accent-color);
 }
+
+.board_list li:hover {
+	background-color: #ffffff;
+	border-bottom: 1px solid var(--accent-color);
+}
+
+
 
 /** image */
 .logo_img {
@@ -145,9 +161,8 @@ li {
 	margin: auto;
 }
 
-table {
+.profile>table {
 	font-size: 1rem;
-
 	width: 40%;
 	margin-top: 20px;
 	margin-left:30%; 
@@ -155,20 +170,24 @@ table {
 	margin-bottom: 20px;
 }
 
-table, th, td {
-	text-align: left;
+.profile>table th {
+	text-align: center;
 	vertical-align: bottom;
 	border-collapse : collapse;
 	border-bottom: 2px solid #9b9b9b;
 	height: 40px;
-}
+} 
 
-td {
+.profile>table td {
 	text-align: center;
+	vertical-align: bottom;
+	border-collapse : collapse;
+	border-bottom: 2px solid #9b9b9b;
+	height: 40px;
 	padding-right: 15px;
 }
 
-th {
+.profile>table th {
 	padding-left: 15px;
 }
 
@@ -197,21 +216,44 @@ input[type='password'] {
 
 .btn_news {
 	margin-top: 15px;
-	margin-right: 15px;
 	float: right;
 	display: block;
 	width: 3.2rem;
     height: 30px;
     font-size: 1rem;
-	color: #DAE9E7;
+	color: var(--text-color);
     border: 1px solid #d5d5d5;
     border-radius: 10px;
 	background-color: var(--background-color);
 }
 
+.btn_news_margin {
+	margin-right: 15px;
+}
+
 .btn_news:hover {
-	background-color: var(--button-color);
+	background-color: var(--text-color);
+	color: #ffffff;
+	cursor: pointer;
+}
+
+.btn_board {
+	margin-top: 10px;
+	margin-right: 20px;
+	float: right;
+	display: block;
+	width: 4.2rem;
+    height: 30px;
+    font-size: 1rem;
 	color: var(--text-color);
+    border: 1px solid #d5d5d5;
+    border-radius: 10px;
+	background-color: var(--background-color);
+}
+
+.btn_board:hover {
+	background-color: var(--text-color);
+	color: #ffffff;
 	cursor: pointer;
 }
 
@@ -269,12 +311,12 @@ input[type='password'] {
 }
 
 @media screen and (max-width: 700px)  {
-	table {
-		width: 70%;
-		margin-left:15%; 
-		margin-right:15%;
-		font-size: 0.8rem;
-	}
+	.profile>table {
+		width: 70% !important;
+		margin-left:15% !important;
+		margin-right:15% !important;
+		font-size: 0.7rem;
+	} 
 
 	#nav {
 		width: 100%;
@@ -291,6 +333,132 @@ input[type='password'] {
 	.hline {
 		font-size: 1rem;
 	}
+}
+
+/** 뉴스 카테고리 체크박스 */
+
+.check {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+input[id="check_actor"] + label,
+input[id="check_singer"] + label,
+input[id="check_etc"] + label {
+	text-align: center;
+    width: 30%;
+    height: 40px;
+    font-size: 1rem;
+    border: 1px solid #d5d5d5;
+    border-radius: 10px;
+    padding: 0.3rem 0.7rem;
+    background-color: var(--background-color);
+	cursor: pointer;
+}
+
+input[id="check_actor"]:hover + label,
+input[id="check_singer"]:hover + label,
+input[id="check_etc"]:hover + label {
+	background-color: var(--text-color);
+	color: #ffffff;
+}
+
+input[id="check_actor"]:checked + label,
+input[id="check_singer"]:checked + label,
+input[id="check_etc"]:checked + label  {
+	background-color: #ffffff;
+	padding: 0.3rem 0.5rem;
+	border-radius: 0.5rem;
+}
+
+input[id="check_actor"],
+input[id="check_singer"],
+input[id="check_etc"]  {
+	display: none;
+}
+
+.ment {
+	padding: 0;
+}
+
+/** News */
+
+.news_content {
+	display: flex;
+	justify-content: space-around;
+	
+}
+
+.news_content img {
+	display:block;
+	max-width:100%;
+	height:auto;
+  
+} 
+
+
+.profile>table {
+	font-size: 1rem;
+	width: 40%;
+	margin-top: 20px;
+	margin-left:30%; 
+	margin-right:30%;
+	margin-bottom: 20px;
+}
+/** board */
+
+
+
+.board_list>table {
+	width: 100%; 
+	margin: auto;
+	text-align: center;
+	border-bottom: 1px solid #ffffff;
+}
+
+.board_list .boardNo {
+	text-align: left;
+	padding-left: 5px;
+	width: 20%;
+}
+
+.board_list .reg {
+	text-align: right;
+	padding-right: 5px;
+	width: 30%;
+}
+
+.board_list .regDt {
+	width: 20%;
+	padding-right: 10px;
+	text-align: right !important;
+}
+
+.borderline {
+	border-top: 1px solid #ffffff;
+	padding-top: 30px;
+}
+
+.board_list li:hover {
+	cursor: pointer;
+}
+
+.content {
+	padding-left: -10%;
+}
+
+
+.right {
+	display: block;
+	float: right;
+	padding-top: 4px;
+	margin-right: 15px;
+	font-size: 0.8rem;
+}
+
+.right>dl {
+	margin: 0;
 }
 
 /**  에디터 디자인 */

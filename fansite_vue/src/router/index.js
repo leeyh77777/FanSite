@@ -58,8 +58,8 @@ const routes = [
   },
   {
     path: '/board',
-    name: 'Board List',
-    component: () => import(/* webpackChunkName: "Board List" */ "../views/board/List.vue"),
+    name: 'Board',
+    component: () => import(/* webpackChunkName: "Board" */ "../views/board/List.vue"),
   },
   {
     path: '/board/view',

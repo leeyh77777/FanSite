@@ -1,9 +1,8 @@
 <template>
     <div class='stit'>{{ title }}</div>
     <ul class='news_list'>
-        
-        <li :key="i" v-for="(li, i) in list" @click="goView(li.idx)">{{ li.subject }}</li>
-
+        <li :key="i" v-for="(li, i) in list" @click="goView(li.idx)">
+            {{ li.subject }}</li>
     </ul>
 </template>
 <script>

@@ -1,6 +1,6 @@
 <template>
     <PageTitle>뉴스 수정</PageTitle>
-    <Form :mode="mode" :news="news" />
+    <Form :mode="mode" ref="frm" />
 </template>
 <script>
 import PageTitle from "../../components/PageTitle.vue"
@@ -12,7 +12,6 @@ export default {
     data() {
         return {
             mode : "edit",
-            news : {},
         };
     },
     created() {
@@ -24,7 +23,7 @@ export default {
         const idx = this.$route.query.idx;
         const result = await this.$get(idx);
         if (result.success) {
-            this.news = result.data;
+            this.$refs.frm.updateData(result.data);
         }
     }
 }

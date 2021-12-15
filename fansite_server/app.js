@@ -4,6 +4,8 @@ const path = require('path');
 const { sequelize } = require("./models");
 const memberRouter = require('./routes/member'); // 회원 Router
 const newsRouter = require('./routes/news'); // 뉴스 Router
+const boardRouter = require('./routes/board');
+const fileRouter = require('./routes/file'); // 파일 업로드 처리 
 
 const app = express();
 app.set('PORT', process.env.PORT || 3000);
@@ -27,8 +29,8 @@ app.use((req,res,next) => {
 });
 
 /** body-parser */
-app.use(express.json());
-app.use(express.urlencoded({ extended : false }));
+app.use(express.json( {limit : "50mb"}));
+app.use(express.urlencoded({ limit : "50mb", extended : false }));
 
 /** 정적 경로 */
 app.use(express.static(path.join(__dirname, 'public')));
@@ -36,10 +38,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 /** 라우터 등록 */
 app.use("/member", memberRouter);
 app.use("/news", newsRouter);
+app.use("/board", boardRouter);
+app.use("/file", fileRouter);
 
 /** 없는 페이지 처리 라우터 */
 app.use((req, res, next) => {
-	if (req.body.origin != 'front') {
+	if (req.method.toUpperCase() == 'GET' && req.body.origin != 'front') {
 		return res.redirect("/");
 	}
 	

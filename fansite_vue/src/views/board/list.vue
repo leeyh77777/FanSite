@@ -1,8 +1,19 @@
 <template>
-    
-<div class="n_tit">Board</div>
-<button type="button" @click="goLink('add')">추가</button>
+<img class="news_img" src="../../assets/board.png" style="max-width:100%; height:auto;">
+<div class="b_tit">Community</div>
+    <div class="board_list">
+        <table>
+            <thead>
+                <tr>
+                    <th class="boardNo">글번호</th>
+                    <th>제목</th>
+                    <th class="reg">등록일</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
 <List />
+<button class="btn_board" type="button" @click="goLink('add')">글쓰기</button>
 </template>
 <script>
 import List from "../../components/board/List.vue"

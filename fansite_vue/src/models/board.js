@@ -22,15 +22,19 @@ export default {
             return result;
         },
         /** 게시글 목록 */
-        async $get(data) {
+        async $get() {
+            const data = {
+                mode : "list",
+            };
             const result = await this.$request(this.requestURL, data, "POST");
+            console.log(result);
             const list = result.data || [];
             return list;
         },
         /** 게시글 내용 조회 */
         async $view(idx) {
             const data = {
-                mode : "get",
+                mode : "view",
                 idx,
             };
             const result = await this.$request(this.requestURL, data, "POST");

@@ -1,16 +1,40 @@
 <template>
     <form id="frmBoard" ref="frmBoard" autocomplete="off" @submit="formSubmit($event)">
-        <input type="hidden" name="idx" :value="board.idx" v-if="mode != 'add'">
+        <input type="hidden" name="mode" :value="mode" />
+        <input type="hidden" name="idx" v-model="idx">
+        <dl>
+            <dt>글쓴이</dt>
+            <dd>
+        <input type="text" name="poster" v-model="poster">
+            </dd>
+        </dl>
         <dl>
             <dt>게시글 명</dt>
             <dd>
-                <input type="text" name="subject" :value="board.subject">
+                <input type="text" name="subject" v-model="subject">
             </dd>
         </dl>
         <dl>
             <dt>게시글 내용</dt>
             <dd>
-                <textarea name="content" :value="board.content"></textarea>
+                <Editor 
+                    api-key="13l7qxj3515d4atocxe80zsvuhtg4yq1yob5b4y54jf7hmi6" 
+                    :init="{
+                    height: 500,
+                    menubar: true,
+                    plugins: [
+                    'advlist autolink lists link image charmap print preview anchor',
+                    'searchreplace visualblocks code fullscreen',
+                    'insertdatetime media table paste code help wordcount'
+                    ],
+                    toolbar:
+                    'undo redo | formatselect | bold italic backcolor | \
+                    alignleft aligncenter alignright alignjustify | \
+                    bullist numlist outdent indent | removeformat | help'
+                }"
+                    v-model="content" ref='editor' />
+                
+                <input type="file" @change='addImage($event);'>
             </dd>
         </dl>
         <input type="submit" value="게시글 등록" v-if="mode == 'add'">
@@ -21,42 +45,39 @@
 <script>
 import board from "../../models/board.js"
 import MessagePopup from "../../components/common/Message.vue"
+import Editor from '@tinymce/tinymce-vue'
 export default {
     mixins : [board],
-    components : {MessagePopup},
+    components : {MessagePopup, Editor},
     data() {
         return {
             message : "",
+            idx : 0,
+            poster : "",
+            subject : "",
+            content : "",
         };
     },
     props : {
         mode : {
-            type : Object,
+            type : String,
             default : "add",
-        },
-        board : {
-            type : Object,
-            default() {
-                return {
-                    idx : 0,
-                    subject : "",
-                    content : "",
-                };
-            }
         }
     },
     methods : {
         async formSubmit(e) {
             e.preventDefault();
             const formData = new FormData(this.$refs.frmBoard);
+            formData.append("content", this.content);
             let result = {};
             let idx = 0;
             if (this.mode == 'add') { // 게시글 추가
                 result = await this.$add(formData);
+                
                 idx = result.data.idx;
             } else { // 게시글 수정
                 result = await this.$edit(formData);
-                idx = result.data.idx;
+                idx = this.idx;
             }
 
             if (result.success) {
@@ -67,6 +88,26 @@ export default {
             if (result.message) {
                 this.$showMessage(this, result.message);
             }
+        },
+        async addImage(e) {
+          
+            const target = e.target;
+            const file = target.files[0];
+            const data = await this.$sendFile(file);
+            if (data.message) {
+                this.$showMessage(this, data.message);
+            }
+            if (data.success) {
+                this.content += "<img src='" + this.$store.state.apiURL + data.data.imageUrl + "'>"; 
+            }
+        
+        },
+         /** 수정 데이터 반영  */
+        updateData(data) {
+            this.idx = data.idx;
+            this.poster = data.poster;
+            this.subject = data.subject;
+            this.content = data.content;
         }
     }
 }
