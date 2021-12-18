@@ -29,7 +29,7 @@ const app = createApp(App) /** 어플리케이션 인스턴스 생성 */
 init(app) /** 공통 저장소, 함수 설정 */
 app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, id=app에 마운트 */
 ```
-* App.vue: 루트 컴포넌트. <router-view/>로 랜더링 한다.(Vue 어플리케이션 id=app에 마운트 한다.)
+* App.vue: 루트 컴포넌트. 'router-view/'로 랜더링 한다.(Vue 어플리케이션 id=app에 마운트 한다.)
 
 * ./router/index.js: 라우터설정 & 컴포넌트 설정 
 
