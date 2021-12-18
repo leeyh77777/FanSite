@@ -39,16 +39,16 @@ router.use(async (req, res) => {
 				
 				const info = await news.get(data.idx);
 				if (!info) {
-					throw new Error('삭제할 작업내역이 없습니다.');
+					throw new Error('삭제할 뉴스가 없습니다.');
 				}
 				
 				if (info.memNo != data.memNo) {
-					throw new Error('본인이 작성한 작업내역만 삭제 가능합니다.');
+					throw new Error('본인이 작성한 뉴스만 삭제 가능합니다.');
 				}
 				
 				result = await news.deleteNews(data.idx);
 				if (!result) {
-					throw new Error('작업삭제 실패하였습니다');
+					throw new Error('뉴스삭제 실패하였습니다');
 				}
 				
 				success = true;

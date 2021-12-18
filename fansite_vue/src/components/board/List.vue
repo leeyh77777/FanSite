@@ -2,7 +2,7 @@
     <div class="board_list">
     <table>
         <tbody>
-        <tr :key="i" v-for="(li, i) in list" @click="goView(li.idx)">
+        <tr :key="i" v-for="(li, i) in list" @click="goView(li.idx)" class="board_content">
             <td class="board_idx">
             {{ li.idx }}
             </td>
@@ -16,30 +16,39 @@
         </tbody>
     </table>
     </div>
-    <div class="pagnation">
-        <span class="before" v-if="beforePage == true" @click="before">이전 </span>
-        <div v-for="count in pageCnt" :key="count">
-    <span
-        @click="page($event)"
-        class="page"
-        :class="{ underline: Number(nowPage) % 5 == Number(count) % 5 || (nowPage == 1 && count == 1) }"
-    >
-        {{ (nowPages - 1) * 5 + count }}
-    </span>
+    <div class="btn-cover">
+      <button :disabled="pageNum === 0" @click="prevPage" class="page-btn">
+        이전
+      </button>
+      <span class="page-count">{{ pageNum + 1 }} / {{ pageCount }} 페이지</span>
+      <button :disabled="pageNum >= pageCount - 1" @click="nextPage" class="page-btn">
+        다음
+      </button>
     </div>
-    <span class="next" v-if="nextPage == true" @click="next"> 다음</span>
-  </div>
   <MessagePopup :message="message" v-if="message" @click="out" />
 </template>
 <script>
 import board from "../../models/board.js"
 export default {
+    name: 'paginated-list',
     mixins: [board],
     data() {
         return {
             title : "",
             list : [],
-        };
+            pageNum: 0
+        }
+    },
+    props: {
+        listArray: {
+            type: Array,
+            required: true
+        },
+        pageSize: {
+            type: Number,
+            required: false,
+            default: 5
+        }
     },
     async mounted() {
         this.list = await this.$get();
@@ -47,7 +56,27 @@ export default {
     methods : {
         goView(idx) {
             this.$router.push({ path : "/board/view", query : { idx }});
+        },
+        nextPage() {
+            this.pageNum += 1;
+        },
+        prevPage() {
+            this.pageNum -= 1;
         }
+    },
+    computed: {
+        pageCount () {
+            let listLeng = this.listArray.length,
+                listSize = this.pageSize,
+                page = Math.floor(listLeng / listSize);
+            if (listLeng % listSize > 0) page += 1;
+            return page;
+        },
+        paginatedData () { 
+            const start = this.pageNum * this.pageSize,
+                    end = start + this.pageSize;
+            return this.listArray.slice(start, end);
+    }
     }
 }
 </script>

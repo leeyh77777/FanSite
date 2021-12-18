@@ -1,22 +1,19 @@
 <template>
-
 <div class='news_view'>
     <dl>
         <dt class='stit'>News title</dt>
         <dd class=" bg_wh">{{ view.subject }}</dd>
     </dl>
-        <div class='btns'>
-        <button type="button" @click="goLink('add')">추가</button>
-        <button type="button" @click="goLink('edit')">수정</button>
-        <button type="button" @click="deleteNews">삭제</button>
-        <button class="btn_news" type="button" @click="goLink('list')">목록</button>
-    </div>
     <dl>
         <dt class='stit'>The news</dt>
         <dd>
         <div v-html="view.contentHtml" class='news_content'></div>
         </dd>
-        </dl>
+    </dl>
+        <button class="btn_news btn_news_margin" type="button" @click="deleteNews">삭제</button>
+        <button class="btn_news" type="button" @click="goLink('edit')">수정</button>
+        <button class="btn_news" type="button" @click="goLink('add')">추가</button>
+        <button class="btn_news" type="button" @click="goLink('list')">목록</button>
 
 </div>
 

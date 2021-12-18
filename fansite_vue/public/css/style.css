@@ -238,8 +238,7 @@ input[type='password'] {
 }
 
 .btn_board {
-	margin-top: 10px;
-	margin-right: 20px;
+	margin: 20px 20px;
 	float: right;
 	display: block;
 	width: 4.2rem;
@@ -418,21 +417,34 @@ input[id="check_etc"]  {
 }
 
 .board_list .boardNo {
-	text-align: left;
-	padding-left: 5px;
+	text-align: center;
 	width: 20%;
 }
 
+.board_list .board_idx {
+	width: 20%;
+	text-align: center;
+}
+
 .board_list .reg {
-	text-align: right;
+	text-align: center;
 	padding-right: 5px;
-	width: 30%;
+	width: 20%;
 }
 
 .board_list .regDt {
 	width: 20%;
-	padding-right: 10px;
-	text-align: right !important;
+	text-align: center !important;
+}
+
+.board_content { /**!!!!!!!!!!!*/
+	border-top: 2px solid black !important;
+}
+
+.board_content:hover {
+	cursor: pointer;
+	background-color: #ffffff;
+	color: var(--accent-color);
 }
 
 .borderline {
@@ -440,14 +452,15 @@ input[id="check_etc"]  {
 	padding-top: 30px;
 }
 
-.board_list li:hover {
-	cursor: pointer;
-}
-
 .content {
 	padding-left: -10%;
 }
 
+.content img {
+	display:block;
+	max-width:100%;
+	height:auto;
+}
 
 .right {
 	display: block;

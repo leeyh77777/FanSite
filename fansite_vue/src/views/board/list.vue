@@ -1,6 +1,7 @@
 <template>
 <img class="news_img" src="../../assets/board.png" style="max-width:100%; height:auto;">
 <div class="b_tit">Community</div>
+<button class="btn_board" type="button" @click="goLink('add')">글쓰기</button>
     <div class="board_list">
         <table>
             <thead>
@@ -12,16 +13,19 @@
             </thead>
         </table>
     </div>
-<List />
-<button class="btn_board" type="button" @click="goLink('add')">글쓰기</button>
+<List :listArray="pageArray" />
+
 </template>
 <script>
 import List from "../../components/board/List.vue"
 export default {
-    components : { List },
+    components : {
+        List
+        },
     data() {
         return {
             checked: [],
+            pageArray: [],
         }
     },
     created() {

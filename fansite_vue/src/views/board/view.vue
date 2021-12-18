@@ -21,10 +21,10 @@
             </dd>
         </dl>
         <div class="btns">
-        <button class="btn_news btn_news_margin" type="button" @click="goLink('')">목록</button>
-        <button class="btn_news" type="button" @click="deleteBoard">삭제</button>
+        <button class="btn_news btn_news_margin" type="button" @click="deleteBoard">삭제</button>
         <button class="btn_news" type="button" @click="goLink('edit')">수정</button>
         <button class="btn_news" type="button" @click="goLink('add')">추가</button>
+        <button class="btn_news" type="button" @click="goLink('')">목록</button>
         </div>
     </div>
 
