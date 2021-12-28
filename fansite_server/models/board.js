@@ -30,14 +30,10 @@ const board = {
     },
 
     /** 게시글 리스트 */
-    async get(data) {
+    async get() {
         try {
-            const sql = `SELECT * FROM board ORDER BY regDt ASC LIMIT :limit, 5 `;
-            let replacements = {
-                limit: data.limit == 1 ? 0 : (data.limit - 1) * 5,
-            };
+            const sql = `SELECT * FROM board ORDER BY regDt DESC`;						
 			const rows = await sequelize.query(sql, {
-                    replacements,
 					type : QueryTypes.SELECT,
 			});
             return rows;
@@ -46,20 +42,7 @@ const board = {
             return false;
         }
     },
-    /** 게시글 전체 개수 가져오기 */
-    async count() {
-        try {
-            const sql = `SELECT count(*) FROM board`
-            rows = await sequelize.query(sql, {
-                replacements, type: QueryTypes.SELECT
-            });
-            console.log(rows);
-            return rows;
-        } catch (err) {
-            console.log(err);
-            throw new Error("게시글 개수 가져오기 실패!");
-        }
-    },
+
     /** 게시글 보기 */
     async view(idx) {
         try {

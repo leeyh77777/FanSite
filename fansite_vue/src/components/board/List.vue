@@ -9,6 +9,9 @@
             <td class="board_subject">
             {{ li.subject }}
             </td>
+            <td class="board_poster">
+            {{ li.poster }}
+            </td>
             <td class="regDt">
             {{ li.regDt.substring(-19,10) }}
             </td>

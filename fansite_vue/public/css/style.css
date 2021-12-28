@@ -133,12 +133,6 @@ li {
 	border-bottom: 1px solid var(--accent-color);
 }
 
-.board_list li:hover {
-	background-color: #ffffff;
-	border-bottom: 1px solid var(--accent-color);
-}
-
-
 
 /** image */
 .logo_img {
@@ -238,7 +232,8 @@ input[type='password'] {
 }
 
 .btn_board {
-	margin: 20px 20px;
+	margin-top: 10px;
+	margin-right: 20px;
 	float: right;
 	display: block;
 	width: 4.2rem;
@@ -418,33 +413,42 @@ input[id="check_etc"]  {
 
 .board_list .boardNo {
 	text-align: center;
-	width: 20%;
+	width: 12%;
 }
 
-.board_list .board_idx {
-	width: 20%;
-	text-align: center;
+.board_list .boardSubject {
+	width: 47%;
+}
+
+.board_list .board_subject {
+	width: 47%;
 }
 
 .board_list .reg {
 	text-align: center;
-	padding-right: 5px;
-	width: 20%;
+	width: 17%;
 }
 
 .board_list .regDt {
-	width: 20%;
-	text-align: center !important;
+	width: 17%;
+	text-align: center;
 }
 
-.board_content { /**!!!!!!!!!!!*/
-	border-top: 2px solid black !important;
+.board_list .board_idx {
+	width: 12%;
 }
 
-.board_content:hover {
+.board_list .board_content {
+	font-size: 15px;
+	font-weight: normal;
+	font-style: normal;
+	color: var(--text-color);
 	cursor: pointer;
+}
+
+.board_list .board_content:hover {
 	background-color: #ffffff;
-	color: var(--accent-color);
+	border-bottom: 1px solid var(--accent-color);
 }
 
 .borderline {
@@ -456,11 +460,6 @@ input[id="check_etc"]  {
 	padding-left: -10%;
 }
 
-.content img {
-	display:block;
-	max-width:100%;
-	height:auto;
-}
 
 .right {
 	display: block;

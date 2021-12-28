@@ -7,22 +7,20 @@
             <thead>
                 <tr>
                     <th class="boardNo">글번호</th>
-                    <th>제목</th>
+                    <th class="boardSubject">제목</th>
+                    <th class="boardPoster">작성자</th>
                     <th class="reg">등록일</th>
                 </tr>
             </thead>
         </table>
     </div>
 <List />
-<Pagination />
 </template>
 <script>
 import List from "../../components/board/List.vue"
-import Pagination from "../../components/board/Pagi.vue"
 export default {
     components : {
-        List,
-        Pagination
+        List
         },
     data() {
         return {
