@@ -8,7 +8,7 @@
     <router-link to="/logout" v-if="$isLogin()"><div class="htit">Logout</div></router-link>
     <router-link to="/login" v-else><div class="htit">Login</div></router-link>
   </div>
-  <div class="hline">Welcome to IU's fan site</div>
+  <div class="hline">Welcome to IU fansite</div>
   <router-view/>
 </template>
 

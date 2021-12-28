@@ -13,7 +13,7 @@
             </thead>
         </table>
     </div>
-<List :listArray="pageArray" />
+<List />
 
 </template>
 <script>
@@ -25,7 +25,6 @@ export default {
     data() {
         return {
             checked: [],
-            pageArray: [],
         }
     },
     created() {

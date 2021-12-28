@@ -11,10 +11,6 @@ router.use(async (req, res) => {
     let result = {};
     try {
         switch (mode) {
-			case "list" : 
-				success = true;
-				returnData = await board.get();
-				break;
             case "add":
                 result = await board.add(data);
                 if (!result) {
@@ -51,13 +47,19 @@ router.use(async (req, res) => {
 				success = true;
 				returnData = result;
 				break;
-            case "delete":  				
+            case "delete":
+                result = await board.delete(data.idx);
+                				
 				const info = await board.view(data.idx);
 				if (!info) {
 					throw new Error('삭제할 게시글이 없습니다.');
 				}
 				
-				result = await board.delete(data.idx);
+				if (info.memNo != data.memNo) {
+					throw new Error('본인이 작성한 게시글만 삭제 가능합니다.');
+				}
+				
+				result = await news.delete(data.idx);
 				if (!result) {
 					throw new Error('게시글삭제 실패하였습니다');
 				}

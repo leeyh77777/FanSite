@@ -3,11 +3,11 @@
 <div class="n_tit">Press</div>
 <div class="hline ment">** 원하는 뉴스를 선택하세요 **</div>
 <div class="check">
-<input class="type_btn" type="checkbox" id="check_actor" name="newsType" value="actor" v-model="checked" @click="checkValue">
+<input class="type_btn" type="radio" id="check_actor" name="newsType" value="actor" v-model="checked">
 <label for="check_actor">Actor</label>
-<input class="type_btn" type="checkbox" id="check_singer" name="newsType" value="singger" v-model="checked" @click="checkValue">
+<input class="type_btn" type="radio" id="check_singer" name="newsType" value="singger" v-model="checked">
 <label for="check_singer">Singer</label>
-<input class="type_btn" type="checkbox" id="check_etc" name="newsType" value="etc" v-model="checked" @click="checkValue">
+<input class="type_btn" type="radio" id="check_etc" name="newsType" value="etc" v-model="checked">
 <label for="check_etc">etc</label>
 </div>
 <div class="nt_tit">
@@ -34,11 +34,6 @@ export default {
     created() {
         if (!this.$isLogin() && this.$getToken()) {
             location.reload();
-        }
-    },
-    methods : {
-        checkValue() {
-           
         }
     }
     

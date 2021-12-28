@@ -56,6 +56,17 @@ export default {
         async $loginInit() {
             
             if (this.$store.state.member) {
+                const member = this.$getMember();
+               /** 
+                 * SPA 및 vuex persistent 사용시 데이터 갱신이 안되므로 
+                 * node api 서버 체크 외에 vue에서도 만료시간 체크 
+                 * 만료시간 경과시 로그아웃 처리 
+                 * 
+                 */
+                const expires = new Date(member.tokenExpires).getTime() - (60 * 60 * 1000 * 9);
+                if (Date.now() > expires) {
+                   await this.$logOut();
+                }
                 return;
             }
             

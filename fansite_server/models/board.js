@@ -34,6 +34,7 @@ const board = {
         try {
             const sql = `SELECT * FROM board ORDER BY regDt ASC`;						
 			const rows = await sequelize.query(sql, {
+                    replacements,
 					type : QueryTypes.SELECT,
 			});
             return rows;
@@ -83,6 +84,10 @@ const board = {
         const info = await this.get(data.idx);
         if (!info) {
             throw new Error("수정할 게시글이 없습니다.");
+        }
+        
+        if (info.memNo != data.memNo) {
+            throw new Error("본인이 작성한 게시글내역만 수정 가능합니다.")
         }
 
         try {

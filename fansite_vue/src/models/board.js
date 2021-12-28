@@ -24,7 +24,7 @@ export default {
         /** 게시글 목록 */
         async $get() {
             const data = {
-                mode : "list",
+                mode : "get",
             };
             const result = await this.$request(this.requestURL, data, "POST");
             console.log(result);
