@@ -14,13 +14,15 @@
         </table>
     </div>
 <List />
-
+<Pagination />
 </template>
 <script>
 import List from "../../components/board/List.vue"
+import Pagination from "../../components/board/Pagi.vue"
 export default {
     components : {
-        List
+        List,
+        Pagination
         },
     data() {
         return {

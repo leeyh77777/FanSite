@@ -30,9 +30,12 @@ const board = {
     },
 
     /** 게시글 리스트 */
-    async get() {
+    async get(data) {
         try {
-            const sql = `SELECT * FROM board ORDER BY regDt ASC`;						
+            const sql = `SELECT * FROM board ORDER BY regDt ASC LIMIT :limit, 5 `;
+            let replacements = {
+                limit: data.limit == 1 ? 0 : (data.limit - 1) * 5,
+            };
 			const rows = await sequelize.query(sql, {
                     replacements,
 					type : QueryTypes.SELECT,
@@ -43,7 +46,20 @@ const board = {
             return false;
         }
     },
-
+    /** 게시글 전체 개수 가져오기 */
+    async count() {
+        try {
+            const sql = `SELECT count(*) FROM board`
+            rows = await sequelize.query(sql, {
+                replacements, type: QueryTypes.SELECT
+            });
+            console.log(rows);
+            return rows;
+        } catch (err) {
+            console.log(err);
+            throw new Error("게시글 개수 가져오기 실패!");
+        }
+    },
     /** 게시글 보기 */
     async view(idx) {
         try {
@@ -84,10 +100,6 @@ const board = {
         const info = await this.get(data.idx);
         if (!info) {
             throw new Error("수정할 게시글이 없습니다.");
-        }
-        
-        if (info.memNo != data.memNo) {
-            throw new Error("본인이 작성한 게시글내역만 수정 가능합니다.")
         }
 
         try {
