@@ -11,12 +11,14 @@ const board = {
     /** 게시글 추가 */
     async add(data) {
         try {
+            const date = new Date();
             this.checkData(data); 
-            const sql = `INSERT INTO board ( poster, subject, content) VALUES ( :poster, :subject, :content)`;
+            const sql = `INSERT INTO board ( poster, subject, content, regDt) VALUES ( :poster, :subject, :content, :regDt)`;
             const replacements = {
                 poster : data.poster,
                 subject : data.subject,
                 content : data.content,
+                regDt : date,
             };
             const result = await sequelize.query(sql, {
                 replacements,

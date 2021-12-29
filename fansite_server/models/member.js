@@ -17,8 +17,9 @@ const member = {
 		
 
         try {
-            const sql = `INSERT INTO member (memId, memPw, memNm, cellPhone)
-                                        VALUES (:memId, :memPw, :memNm, :cellPhone)`;
+			const date = new Date();
+            const sql = `INSERT INTO member (memId, memPw, memNm, cellPhone, regDt)
+                                        VALUES (:memId, :memPw, :memNm, :cellPhone, :regDt)`;
             const hash = data.memPw?await bcrypt.hash(data.memPw, 10):"";
             let cellPhone = "";
             if (data.cellPhone) {
@@ -29,6 +30,7 @@ const member = {
                 memPw : hash,
                 memNm : data.memNm,
                 cellPhone,
+				regDt : date,
             };
 
             const result = await sequelize.query(sql, {

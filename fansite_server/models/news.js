@@ -14,15 +14,16 @@ const news = {
 	},
 	async addNews(data) {
 		this.checkData(data); // 데이터 유효성 검사
-		
+		const date = new Date();
 		const replacements = {
 				memNo : data.memNo || 0,
 				status : data.status,
 				subject : data.subject,
 				content : data.content,
+				regDt : date,
 		};
-		const sql = `INSERT INTO newslist (memNo, status, subject, content) 
-								VALUES (:memNo, :status, :subject, :content)`;
+		const sql = `INSERT INTO newslist (memNo, status, subject, content, regDt) 
+								VALUES (:memNo, :status, :subject, :content, :regDt)`;
 		try {
 			const result = await sequelize.query(sql, {
 				replacements,

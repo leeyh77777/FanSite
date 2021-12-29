@@ -1,11 +1,11 @@
 # IU FanSite
 #### 링크
 * NodeJS로 구현된 FanSite([여기를 클릭](http://dydhyun.cafe24app.com/))
-* [PHP로 구현된 FanSite](http://dydhyun.cafe24.com/)
-* [사이트 소개](https://github.com/leeyh77777/FanSite#%EA%B0%9C%EC%9A%94)
-* [Vue.Js 기술문서](https://github.com/leeyh77777/FanSite#%ED%95%B5%EC%8B%AC%EA%B8%B0%EC%88%A0)
-* [Node.Js 기술문서](https://github.com/leeyh77777/FanSite/tree/main/fansite_server#iu-fansite---nodejs)
-* [PHP 기술문서]()
+* PHP로 구현된 FanSite([여기를 클릭](http://dydhyun.cafe24.com/))
+* 사이트 소개([여기를 클릭](https://github.com/leeyh77777/FanSite#%EA%B0%9C%EC%9A%94))
+* Vue.Js 기술문서([여기를 클릭](https://github.com/leeyh77777/FanSite#vuejs-%ED%95%B5%EC%8B%AC%EA%B8%B0%EC%88%A0))
+* Node.Js 기술문서([여기를 클릭](https://github.com/leeyh77777/FanSite/tree/main/fansite_server#iu-fansite---nodejs))
+* PHP 기술문서([여기를 클릭]())
 - - -
 ## 개요
 
@@ -25,7 +25,7 @@
 ## Vue.js 핵심기술
 
 ### 1. 페이지 초기화
-* [main.js](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/main.js)
+* main.js([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/main.js))
 : 페이지 초기화 설정
 
 ```
@@ -39,38 +39,40 @@ init(app) /** 공통 저장소, 함수 설정 */
 app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, id=app에 마운트 */
 ```
 
-* [App.vue](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/App.vue)
+* App.vue([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/App.vue))
 : 루트 컴포넌트. 
 ```
 1. '<router-view/>'로 랜더링
 2. Vue 어플리케이션 id=app에 마운트
 ```
 
-* [./router/index.js](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/router/index.js)
+* ./router/index.js([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/router/index.js))
 : 라우터설정 & 컴포넌트 설정 
 
-* [init.js](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/init.js)
+* init.js([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/init.js))
 ```
 1.app.use로 공통저장소(저장소 생성후 데이터 유지)설정 항상 실행
 2.app.mixin(lib)로 공통함수(컴포넌트에서 mixin 불러오지 않아도 사용가능)모듈 생성(앞에'$')
 3.app.mixin(boot)로 로그인회원 정보 유지 메서드 실행
 ```
 
-* [common/store.js](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/common/store.js)
+* common/store.js([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/common/store.js))
 ```
 1. vuex-persistedstate를 이용하여 localStorage에 저장하여 새로고침이 되어도 데이터를 유지
 2. state()에서 apiURL 설정, member(로그인회원정보)를 setMember를 받아서 데이터를 유지
 ```
-* [common/lib.js](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/common/lib.js)
+* common/lib.js([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/common/lib.js))
 : 공통 메서드 라이브러리
 
-* [bootstrap.js](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/bootstrap.js)
+* bootstrap.js([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/bootstrap.js))
 : 초기 공통 처리
 
 ### 2. 회원가입
-* 라우팅 설정 : ./router/index.js -> '/join' 으로 설정
+* 라우팅 설정([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/router/index.js#L15))
+: ./router/index.js -> '/join' 으로 설정
 
-* 컴포넌트 설정 :  ./router/index.js ->  '../views/member/Join.vue' 으로 설정
+* 컴포넌트 설정([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/router/index.js#L3))
+:  ./router/index.js ->  '../views/member/Join.vue' 으로 설정
 
 * [Join.vue](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/member/Join.vue)
 : 컴포넌트 

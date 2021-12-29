@@ -5,7 +5,7 @@
         <input type="text" name="memId" placeholder="아이디" v-model="memId"><br>
         <input type="password" name="memPw" placeholder="비밀번호" v-model="memPw"><br>
         <input type="submit" value="로그인" class="s_btn">
-        <input type="button" onclick="location.href='/join'" class="s_btn" value="회원가입">
+        <input type="button" @click="go('join')" class="s_btn" value="회원가입">
     </form>
     
     <MessagePopup ref='popup' :message="message" />
@@ -36,11 +36,15 @@ export default {
             if (result.success) {
                 this.memId = "";
                 this.memPw = "";
-               this.$router.push({ path : "/"});
+                this.$router.push({ path : "/"});
             }
             if (result.message) {
                 this.$showMessage(this, result.message);
             }
+        },
+        // 링크 이동
+        go(link) {
+            this.$router.push( { path : "/" + link });
         }
     }
 }

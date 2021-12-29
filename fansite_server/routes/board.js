@@ -15,12 +15,6 @@ router.use(async (req, res) => {
 				success = true;
 				returnData = await board.get(data);
 				break;
-			case "count" :
-				result = await board.count(data);
-				if (!result) {
-					throw new Error("게시글 확인 실패");
-				}
-				break;
             case "add":
                 result = await board.add(data);
                 if (!result) {

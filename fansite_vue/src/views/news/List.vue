@@ -35,7 +35,12 @@ export default {
         if (!this.$isLogin() && this.$getToken()) {
             location.reload();
         }
+    },
+    methods: {
+        goLink(link) {
+            this.$router.push({ path : "/news/" + link, query : { idx : this.view.idx }});
+        
+        }
     }
-    
 }
 </script>

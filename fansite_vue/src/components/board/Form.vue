@@ -18,7 +18,7 @@
             <dt>게시글 내용</dt>
             <dd>
                 <Editor 
-                    api-key="13l7qxj3515d4atocxe80zsvuhtg4yq1yob5b4y54jf7hmi6" 
+                    api-key="oo8tvgy193ucyhukegbngu2q2y9alhthykr360p1fwprje4r" 
                     :init="{
                     height: 500,
                     menubar: true,

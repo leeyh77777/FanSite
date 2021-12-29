@@ -18,10 +18,12 @@ const file = {
 		}
 		
 		try {
-			const sql = `INSERT INTO fileinfo (fileName, fileType) VALUES (:fileName, :fileType)`;
+			const date = new Date();
+			const sql = `INSERT INTO fileinfo (fileName, fileType, regDt) VALUES (:fileName, :fileType, :regDt)`;
 			const replacements = {
 				fileName : data.fileName,
 				fileType : data.fileType,
+				regDt : date,
 			};
 			const result = await sequelize.query(sql, {
 				replacements,
