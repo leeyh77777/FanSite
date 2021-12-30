@@ -1,6 +1,8 @@
 <template>
     <img class="login_img" src="../../assets/login.png" style="max-width:100%; height:auto;">
     <div class="p_tit">Join</div>
+    <div class="info">아이디 6자리이상</div>
+    <div class="info">비밀번호 8자리이상 알파벳&숫자로 입력하세요</div>
     <Form :mode="mode" />
     
 </template>

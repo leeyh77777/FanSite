@@ -36,7 +36,7 @@ body {
 	text-align: center;
 	font-style: italic;
 	font-weight: bold;
-	font-size: 25;
+	font-size: 25px;
 	color: #5E1C31;
 }
 
@@ -92,6 +92,12 @@ body {
 	font-weight: bold;
 	font-size: 25px;
 	color: #E44A5A;
+}
+
+.info {
+	text-align: center;
+	font-style: italic;
+	font-weight: bold;
 }
 
 .inline {
@@ -326,6 +332,10 @@ input[type='password'] {
 
 	.hline {
 		font-size: 1rem;
+	}
+
+	.info {
+		font-size: 0.8rem;
 	}
 }
 

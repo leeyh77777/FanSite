@@ -213,8 +213,8 @@ const member = {
 			throw new Error("비밀번호는 8자리 이상 입력하세요.");
 		}
 
-		if (!/[a-z]/i.test(memPw) || !/[0-9]/.test(memPw) || !/[~!@#$%^&*()]/.test(memPw)) {
-			throw new Error("비밀번호는 1개이상의 알파벳, 숫자, 특수문자로 입력하세요.");
+		if (!/[a-z]/i.test(memPw) || !/[0-9]/.test(memPw)) {
+			throw new Error("비밀번호는 1개이상의 알파벳, 숫자로 입력하세요.");
 		}
 		
 		// 비밀번호 확인 S 
