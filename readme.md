@@ -46,8 +46,6 @@
 :eight: 게시판 보기
 ![board2](https://user-images.githubusercontent.com/86813278/147776355-808f2938-5dd0-440e-9d67-a73fc2354291.png)
 
-
-
 ## Vue.js 핵심기술
 
 ### 1. 페이지 초기화
