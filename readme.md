@@ -74,7 +74,7 @@ app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, 
 * 컴포넌트 설정([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/router/index.js#L3))
 :  ./router/index.js ->  '../views/member/Join.vue' 으로 설정
 
-* [Join.vue](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/member/Join.vue)
+* Join.vue([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/member/Join.vue))
 : 컴포넌트 
 ```
 1.상단에 이미지 출력
@@ -82,7 +82,7 @@ app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, 
 3.Form컴포넌트로 회원가입 양식 제공("../../components/member/Form.vue")
 ```
 
-* [Form.vue](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/components/member/Form.vue)
+* Form.vue([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/components/member/Form.vue))
 : 폼데이터 전송
 ``` 
 1. @submit="formSubmit($event)로 데이터입력후 submit 클릭시 해당 메서드 실행.
@@ -91,7 +91,7 @@ app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, 
 4. join 성공시 라우터 '/login'으로 이동
 ```
 
-* [$join(data)](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/member/Join.vue)
+* $join(data)([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/member/Join.vue))
 : 회원가입 로직
 ```
 1.common/lib.js : 
@@ -108,7 +108,7 @@ app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, 
 
 * 컴포넌트 설정 :  ./router/index.js ->  '../views/member/MyInfo.vue' 으로 설정
 
-* [MyInfo.vue](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/member/MyInfo.vue)
+* MyInfo.vue([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/member/MyInfo.vue))
 : 컴포넌트
 ```
 1.상단에 이미지 출력
@@ -117,7 +117,7 @@ app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, 
 4.v-if로 mode가 join이 아닐때는 아이디제외, submit 버튼 value 수정하기로 설정
 ```
 
-* [Form.vue](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/components/member/Form.vue)
+* Form.vue([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/components/member/Form.vue))
 : 폼데이터 전송
 ``` 
 1. @submit="formSubmit($event)로 데이터입력후 submit 클릭시 해당 메서드 실행.
@@ -126,7 +126,7 @@ app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, 
 4. upate 성공시 라우터 memPw, memPwRe 'value'를 비워준다.
 ```
 
-* [$update(data)](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/models/member.js#L24)
+* $update(data)([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/models/member.js#L24))
 : 회원정보 수정
 ```
 1.common/lib.js : 
@@ -141,13 +141,13 @@ app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, 
 
 
 ### 4. 로그인
-* [라우팅 설정](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/router/index.js#L20)
+* 라우팅 설정([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/router/index.js#L20))
 : ./router/index.js -> '/login' 으로 설정
 
-* [컴포넌트 설정](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/router/index.js#L5)
+* 컴포넌트 설정([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/router/index.js#L5))
 : ./router/index.js ->  '../views/member/Login.vue' 으로 설정
 
-* [Login.vue](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/member/Login.vue)
+* Login.vue([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/member/Login.vue))
 : 컴포넌트 
 ```
 1.상단에 이미지 출력
@@ -155,7 +155,7 @@ app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, 
 3.form tag 출력
 ```
 
-* [form 데이터 전송](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/member/Login.vue#L32)
+* form 데이터 전송([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/member/Login.vue#L32))
 ```
 1. @submit="formSubmit($event)로 데이터입력후 submit 클릭시 해당 메서드 실행
 2. e.preventDefault()로 데이터 전송을 막고 FormData 생성.(AXIOS 사용위해)
@@ -163,7 +163,7 @@ app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, 
 3. $login 성공시 라우터 '/'로 이동(메인페이지)
 ```
 
-* [$login(data)](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/models/member.js#L39)
+* $login(data)([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/models/member.js#L39))
 : 로그인 로직
 ```
 1.common/lib.js : 
@@ -178,7 +178,7 @@ app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, 
 ㅁ. 로그인 성공시 $loginInit() 실행.
 ```
 
-* [$loginInit()](<https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/common/lib.js#L56>)
+* $loginInit()([여기를 클릭](<https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/common/lib.js#L56>))
 : 로그인 유지 처리 로직
 ```
 1.lib.js/$loginInit() 메서드 실행 :
@@ -192,13 +192,13 @@ app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, 
 ```
 
 ### 5. 로그아웃
-* [라우팅 설정](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/router/index.js#L25)
+* 라우팅 설정([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/router/index.js#L25))
 : ./router/index.js -> '/logout' 으로 설정
 
-* [컴포넌트 설정](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/router/index.js#L6)
+* 컴포넌트 설정([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/router/index.js#L6))
 : ./router/index.js ->  '../views/member/Logout.vue' 으로 설정
 
-* [Logout.vue](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/member/Logout.vue)
+* Logout.vue([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/member/Logout.vue))
 : 컴포넌트 
 ```
 1.created() 라이프사이클에 아래 메서드 실행(vue 객체생성 dom추가 되기전)
@@ -206,7 +206,7 @@ app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, 
 3.$router.push({ path : "/login" }) : '/login' url 이동
 ```
 
-* [$logout()](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/common/lib.js#L81)
+* $logout()([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/common/lib.js#L81))
 : 로그 아웃
 ```
 1. this.$store.commit('setMember', null); -> 로컬스토리지에 member 비워줌.
@@ -216,7 +216,7 @@ app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, 
 ### 6. 파일 전송
 * 게시판 or 뉴스 Form 컴포넌트에서 이미지 추가시 $sendFile(file)메소드로 파일 전송
 
-* [$sendFile(file)](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/common/lib.js#L94)
+* $sendFile(file)([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/common/lib.js#L94))
 ```
 1. url에 "/file" 추가
 2. 파일 유무 확인후 에러처리
@@ -224,7 +224,7 @@ app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, 
 ```
 
 ### 7. 뉴스
-* [라우팅 설정](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/router/index.js#L35)
+* 라우팅 설정([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/router/index.js#L35))
 
 :one: ./router/index.js -> 뉴스 추가 : '/news/add' 으로 설정
 
@@ -235,7 +235,7 @@ app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, 
 :four: ./router/index.js -> 뉴스 수정 : '/news/edit' 으로 설정
 
 
-* [컴포넌트 설정](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/router/index.js#L37)
+* 컴포넌트 설정([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/router/index.js#L37))
 
 :one: ./router/index.js -> 뉴스 추가 : '../views/news/Add.vue' 으로 설정
 
@@ -246,7 +246,7 @@ app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, 
 :four: ./router/index.js -> 뉴스 수정 : '../views/news/Edit.vue' 으로 설정
 
 #### 뉴스 추가
-* [Add.vue](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/news/Add.vue)
+* Add.vue([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/news/Add.vue))
 : 뉴스 추가 컴포넌트 
 ```
 1.Form컴포넌트로 뉴스추가 양식 링크("../../components/news/Form.vue")
@@ -258,7 +258,7 @@ app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, 
     }
 ```
 
-* [Form.vue](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/components/news/Form.vue)
+* Form.vue([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/components/news/Form.vue))
 : Form데이터 전송(./components/news/Form.vue)
 ``` 
 1. Content @tiny 에디터 사용
@@ -266,14 +266,13 @@ app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, 
 2. @submit="formSubmit($event)로 데이터입력후 submit 클릭시 해당 메서드 실행.
 2. e.preventDefault()로 데이터 전송을 막고 FormData 생성.(axios 사용위해)
 3. mode가 add(기본값)이면 $addNews(/models/news.js)메서드 실행.
-
 ```
 
-* [addNews(data)](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/models/news.js#L9)
+* addNews(data)([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/models/news.js#L9))
 : axios로 서버에 데이터 INSERT 요청 (data: formData)
 
 #### 뉴스 보기
-* [View.vue](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/news/View.vue)
+* View.vue([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/news/View.vue))
 : 뉴스 보기 컴포넌트
 ```
 1. const idx = this.$route.query.idx;	// idx 쿼리스트링으로 처리
@@ -286,11 +285,11 @@ app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, 
 5. <div v-html="view.contentHtml" class='news_content'></div>	// 뉴스데이터에 content를 렌더링
 ```
 
-* [$get(idx)](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/models/news.js#L35)
+* $get(idx)([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/models/news.js#L35))
 : axios로 서버에 데이터 요청 (mode: "get", idx : parameter)
 
 #### 뉴스 목록
-* [List.vue](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/news/List.vue)
+* List.vue([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/news/List.vue))
 : 뉴스 목록 view 
 ```
 1.List컴포넌트로 뉴스목록 랜더링("../../components/news/List.vue")
@@ -301,7 +300,7 @@ app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, 
     </div>
 ```
 
-* [List.vue](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/components/news/List.vue)
+* List.vue([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/components/news/List.vue))
 : 뉴스 목록 컴포넌트
 ```
 1. props로 view의 status를 전달받고, switch case로 status 선택
@@ -310,11 +309,11 @@ app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, 
 	{{ li.subject }}</li>	// 뉴스목록에 subject 렌더링, 클릭시 해당 idx로 view로 이동
 ```
 
-* [$getList(status)](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/models/news.js#L25)
+* $getList(status)([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/models/news.js#L25))
 : axios로 서버에 데이터 요청 (mode: "getList", status : parameter)
 
 #### 뉴스 수정
-* [Edit.vue](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/news/Edit.vue)
+* Edit.vue([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/news/Edit.vue))
 : 뉴스 수정 view 
 ```
 1. const idx = this.$route.query.idx;	// idx 쿼리스트링으로 처리
@@ -325,7 +324,7 @@ app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, 
 4.Form 컴포넌트로 뉴스수정 양식 링크_mode: "edit"("../../components/news/Form.vue")
 ```
 
-* [Form.vue](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/components/news/Form.vue)
+* Form.vue([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/components/news/Form.vue))
 : Form데이터 전송(./components/news/Form.vue)
 ``` 
 1. Content @tiny 에디터 사용
@@ -337,17 +336,103 @@ app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, 
 5. <input type="file" @change='addImage($event);'>
 ```
 
-* [$getList(status)](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/models/news.js#L25)
+* $getList(status)([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/models/news.js#L25))
 : axios로 서버에 데이터 요청 (mode: "getList", status : parameter)
 
 #### 뉴스 삭제
-* [View.vue](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/news/View.vue#L13)
+* View.vue([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/news/View.vue#L13))
 : 뉴스 삭제 버튼_deleteNews() 메서드 실행
 
-* [deleteNews()](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/news/View.vue#L49)
+* deleteNews()([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/news/View.vue#L49))
 : $deleteNews(idx) 메서드 실행 후 성공시 /news/list url로 이동
 
-* [$delteNews(idx)](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/models/news.js#L19)
+* $delteNews(idx)([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/models/news.js#L19))
 : : axios로 DB서버에 데이터 DELETE 요청 (mode: "delete", idx : parameter)
-### 8. 게시판
 
+### 8. 게시판
+* 라우팅 설정([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/router/index.js#L55))
+
+:one: ./router/index.js -> 게시판 추가 : '/board/add' 으로 설정
+
+:two: ./router/index.js -> 게시판 목록 : '/board' 으로 설정
+
+:three: ./router/index.js -> 게시판 보기 : '/board/view' 으로 설정
+
+:four: ./router/index.js -> 게시판 수정 : '/board/edit' 으로 설정
+
+
+* 컴포넌트 설정([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/router/index.js#L57))
+
+:one: ./router/index.js -> 게시판 추가 : '../views/board/Add.vue' 으로 설정
+
+:two: ./router/index.js -> 게시판 목록 : '../views/board/List.vue' 으로 설정
+
+:three: ./router/index.js -> 게시판 보기 : '../views/board/View.vue' 으로 설정
+
+:four: ./router/index.js -> 게시판 수정 : '../views/board/Edit.vue' 으로 설정
+
+#### 게시판 추가
+* Add.vue([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/board/Add.vue))
+: 게시판 추가 컴포넌트 
+```
+1.Form컴포넌트로 게시판추가 양식 링크("../../components/board/Form.vue")
+2.아래 조건문으로 로그인이 되지 않았을시에 URL "/login"으로 이동
+	created() {
+        if (!this.$isLogin()) {
+            return this.$router.push({ path : "/login"});
+        }
+    }
+```
+
+* Form.vue([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/components/board/Form.vue))
+: Form데이터 전송(./components/board/Form.vue)
+``` 
+1. data poster, subject 텍스트로 입력
+2. data Content @tiny 에디터 사용하여 입력
+(참조: https://www.tiny.cloud/docs/general-configuration-guide/basic-setup/#basicconfigurationexample)
+2. @submit="formSubmit($event)로 데이터입력후 submit 클릭시 해당 메서드 실행.
+2. e.preventDefault()로 데이터 전송을 막고 FormData 생성.(axios 사용위해)
+3. mode가 add(기본값)이면 $addNews(/models/news.js)메서드 실행.
+```
+
+* add(data)([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/models/board.js#L9))
+: axios로 서버에 데이터 INSERT 요청 (data: formData)
+
+#### 게시판 목록
+* list.vue([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/board/list.vue))
+: 게시판 목록 view 
+```
+1. List컴포넌트로 뉴스목록 랜더링("../../components/board/List.vue")
+2. 뉴스목록 헤더 출력
+```
+
+* List.vue([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/components/board/List.vue))
+: 게시판 목록 컴포넌트
+```
+1. this.list = await this.$get()  // $get()로 this.list에 게시판 목록 서버에 요청
+2. <tr :key="i" v-for="(li, i) in list" @click="goView(li.idx)" class="board_content">
+	// for...in으로 list 출력
+3. @click="goView(li.idx)	// 게시판 목록 선택시 해당 idx로 이동
+```
+
+* $get()([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/models/board.js#L25))
+: axios로 서버에 데이터 요청 (mode: "list")
+
+#### 게시판 보기
+* View.vue([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/board/view.vue))
+: 게시판 보기 컴포넌트
+```
+1. const idx = this.$route.query.idx;	// idx 쿼리스트링으로 처리
+2. const result =  await this.$view(idx)	// $view메서드로 게시판 데이터를 가져온다.
+3. if (result.success) {				// 뉴스데이터를 가져오면  board 객체에 데이터 이동
+	 this.board = result.data;
+   }
+----------------------------------------------------------------------------
+4. <dd class=" bg_wh">{{ board.subject }}</dd>	// 게시판데이터에 subject를 렌더링
+5. <dd>글쓴이 : {{ board.poster }}</dd>	// 게시판데이터에 poster 렌더링
+6. <dd>등록일 : {{ board.regDt }}</dd>	// 게시판데이터에 regDt 렌더링
+7. <div v-html="board.contentHtml" class='content'></div>	// 게시판 데이터에 content를 렌더링
+```
+
+* $get(idx)([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/models/board.js#L25))
+: axios로 서버에 데이터 요청 (mode: "get", idx : parameter)

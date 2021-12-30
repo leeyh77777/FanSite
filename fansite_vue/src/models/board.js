@@ -23,14 +23,11 @@ export default {
         },
         /** 게시글 목록() */
         async $get() {
-            const url = this.$route.query;
             const data = {
-                mode : "list",
-                page : url.page || 1,
+                mode : "list"
             };
             const result = await this.$request(this.requestURL, data, "POST");
             const list = result.data || [];
-            console.log("list: ", list);
             return list;
         },
         /** 게시글 내용 조회 */

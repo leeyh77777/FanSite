@@ -22,11 +22,6 @@ export default {
     components : {
         List
         },
-    data() {
-        return {
-            checked: [],
-        }
-    },
     created() {
         if (!this.$isLogin() && this.$getToken()) {
             location.reload();
