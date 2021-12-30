@@ -19,7 +19,7 @@ export default {
     }
     },
     async mounted() {
-        const idx = parseInt(this.$route.query.idx);
+        const idx = this.$route.query.idx;
         const result = await this.$view(idx);
         if (result.success) {
             this.$refs.frm.updateData(result.data);

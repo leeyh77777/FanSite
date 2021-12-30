@@ -132,11 +132,59 @@ sequelize로 요청data의 status로 Mysql에 조회
 ㄴ. 정규표현식으로 뉴스생성일자 패턴정의
 ```
 - - -
-:three: '/board'
+:three: ['/board'](https://github.com/leeyh77777/FanSite/blob/main/fansite_server/routes/board.js)
 
+1. route등록 : [/board](https://github.com/leeyh77777/FanSite/blob/main/fansite_server/app.js#L41)(app.use로 라우터 등록)
 
+2. route mode 설정 : [/routes/board.js](https://github.com/leeyh77777/FanSite/blob/main/fansite_server/routes/board.js)
+(mode로 요청이 들어오면 switch case로 해당 모드 선택후 실행)
 
+* [list](https://github.com/leeyh77777/FanSite/blob/main/fansite_server/routes/board.js#L14) 
+: models/board의 get(data) 메서드를 실행, 완료시 json으로 반환
 
+* [get](https://github.com/leeyh77777/FanSite/blob/main/fansite_server/routes/board.js#L26)
+: models/board의 get(data.idx) 메서드를 실행, 완료시 값을 json으로 반환
+
+* [view](https://github.com/leeyh77777/FanSite/blob/main/fansite_server/routes/board.js#L39)
+: models/board의 add(data) 메서드를 실행, 완료시 값을 json으로 반환
+
+* [delete](https://github.com/leeyh77777/FanSite/blob/main/fansite_server/routes/board.js#L53) 
+: models/board의 view(data.idx)로 게시글 정보 가져온 후, models/board의 delete(data.idx) 메서드로 게시글 삭제
+
+* [edit](https://github.com/leeyh77777/FanSite/blob/main/fansite_server/routes/board.js#L66)
+: models/board의 edit(data) 메서드를 실행, 완료시 값을 json으로 반환
+
+3. route 로직 [/models/board.js](https://github.com/leeyh77777/FanSite/blob/main/fansite_server/models/board.js)
+(DB(Mysql) 연동)
+
+* [add(data)](https://github.com/leeyh77777/FanSite/blob/main/fansite_server/models/board.js#L12)
+```
+ㄱ. checkJoinData() 메서드로 요청data 뉴스 추가 입력 항목 검사
+ㄴ. sequelize로 요청data Mysql에 INSERT 처리
+```
+
+* [get()](https://github.com/leeyh77777/FanSite/blob/main/fansite_server/models/board.js#L35)
+```
+mysql에 board 데이터 반환
+```
+
+* [view(idx)](https://github.com/leeyh77777/FanSite/blob/main/fansite_server/models/board.js#L49)
+```
+ㄱ. sequelize로 요청data의 idx로 Mysql에 조회
+ㄴ. 정규표현식으로 게시글생성일자 패턴정의
+```
+
+* [edit(data)](https://github.com/leeyh77777/FanSite/blob/main/fansite_server/models/board.js#L81)
+```
+ㄱ. checkJoinData() 메서드로 요청(idx추가)data 게시글 추가 입력 항목 검사
+ㄴ. get(data.idx) 메서드로 게시글 정보 조회, 게시글 유무 확인
+ㄷ. sequelize로 요청data Mysql에 UPDATE 처리
+```
+
+* [delete(idx)](https://github.com/leeyh77777/FanSite/blob/main/fansite_server/models/board.js#L114)
+```
+sequelize로 요청idx Mysql에 DELETE 처리
+```
 - - -
 :four: ['/file'](https://github.com/leeyh77777/FanSite/blob/main/fansite_server/routes/file.js)
 
@@ -165,6 +213,7 @@ sequelize로 요청data의 status로 Mysql에 조회
 ㄱ. sequelize로 idx로 fileInfo Mysql에 조회
 ㄴ. 데이터에 imageUrl, imagePath 추가 하여 반환
 ```
+- - -
 ### 4. DB 연결
 * sequelize 라이브러리로 DB연결
 

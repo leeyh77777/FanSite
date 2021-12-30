@@ -434,5 +434,31 @@ app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, 
 7. <div v-html="board.contentHtml" class='content'></div>	// 게시판 데이터에 content를 렌더링
 ```
 
-* $get(idx)([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/models/board.js#L25))
-: axios로 서버에 데이터 요청 (mode: "get", idx : parameter)
+* $view(idx)([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/models/board.js#L34))
+: axios로 서버에 데이터 요청 (mode: "view", idx: parameter)
+
+#### 게시판 수정
+* Edit.vue([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/board/Edit.vue))
+: 게시판 수정 view 
+```
+1. const idx = this.$route.query.idx;	// idx 쿼리스트링으로 처리
+2. const result =  await this.$view(idx)	// $view메서드로 게시판데이터를 가져온다.
+3. if (result.success) {				// 게시판데이터를 가져오면  Form 컴포넌트에 updateData(data)로 수정할 데이터 반영
+	 this.$refs.frm.updateData(result.data);
+   }
+4.Form 컴포넌트로 게시판수정 양식 링크_mode: "edit"("../../components/board/Form.vue")
+```
+
+* Form.vue([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/board/Edit.vue))
+: Form데이터 전송(./components/news/Form.vue)
+``` 
+1. Content @tiny 에디터 사용
+(참조: https://www.tiny.cloud/docs/general-configuration-guide/basic-setup/#basicconfigurationexample)
+2. @submit="formSubmit($event)로 데이터입력후 submit 클릭시 해당 메서드 실행.
+3. e.preventDefault()로 데이터 전송을 막고 FormData 생성.(axios 사용위해)
+4. mode가 add가 아닐때는 $edit(formData)메서드 실행
+5. idx = this.idx; 로 쿼리스트링 idx로 가져온다.
+```
+
+* $edit()([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/models/board.js#L14))
+: axios로 서버에 데이터 요청
