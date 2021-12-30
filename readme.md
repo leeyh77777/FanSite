@@ -22,8 +22,29 @@
 
 ### 3. 각 페이지별 소개
 
-:one: Login
+:one: Login : ID 와 Password로 로그인 구현
 ![login](https://user-images.githubusercontent.com/86813278/147775164-d063d36c-6ae1-4087-89d7-615e43448b01.png)
+
+:two: Join : 회원가입 구현(아이디, 비밀번호, 회원명, 휴대전화번호)
+![join](https://user-images.githubusercontent.com/86813278/147775567-0df3c548-8a3f-4ee0-8217-11ce04584ac8.png)
+
+:three: 아이유 프로필(이름, 생년월일, 키, 혈액형, sns 링크)
+![profile](https://user-images.githubusercontent.com/86813278/147775709-bb75e1cc-fc9a-4011-9951-e660c53d0dcc.png)
+
+:four: News : 아이유 뉴스 카테고리별로 목록 구현(가수, 배우, 기타)
+![news1](https://user-images.githubusercontent.com/86813278/147775874-79516d1c-a9bd-4f4a-b19f-dd5614a58f0f.png)
+
+:five: News : 아이유 뉴스 보기
+![news2](https://user-images.githubusercontent.com/86813278/147775990-dc415681-0ba4-423a-93cf-d87d14f8bc86.png)
+
+:six: 회원정보 변경(이름, 휴대전화번호 변경)
+![myinfo](https://user-images.githubusercontent.com/86813278/147776077-934838bb-2ff5-4041-8ba9-77acaa2e8d5e.png)
+
+:seven: 게시판 목록
+![board1](https://user-images.githubusercontent.com/86813278/147776264-d102e377-3dfd-4d15-991d-ceef8a6ba96f.png)
+
+:eight: 게시판 보기
+![board2](https://user-images.githubusercontent.com/86813278/147776355-808f2938-5dd0-440e-9d67-a73fc2354291.png)
 
 
 
