@@ -7,7 +7,7 @@ include_once "../common.php"; // 공통 정의 부분
 $file = File::getInstance();
 
 try {
-	switch(Request::get("mode") {
+	switch(Request::get("mode")) {
 		case "upload" :
 			$result = $file->upload($in);
 			if(!$result) {
@@ -15,7 +15,7 @@ try {
 			}
 			
 			$success = true;
-			$returnData = result;
+			$returnData = $result;
 		break;
 	default :
 		if (Request::get("origin") != 'front') {
