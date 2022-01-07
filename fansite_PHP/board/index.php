@@ -10,7 +10,7 @@ try {
 	switch(Request::get("mode")) {
 		case "list" :
 			$success = true;
-			$returnData = $board->get();
+			$returnData = $board->get($in);
 			break;
 		case "add" :
 			$result = $board->add($in);
@@ -43,7 +43,7 @@ try {
 			$idx = Request::get("idx", 0);
 			$result = $board->view($idx);
 			if (!$result) {
-				throw new Error('목록조회 실패')
+				throw new Error('목록조회 실패');
 			}
 			
 			$success = true;

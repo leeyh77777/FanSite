@@ -1,6 +1,5 @@
 <?php
 include_once "../common.php";
-
 /**
  * 회원가입, 로그인 처리
  *
@@ -9,7 +8,7 @@ $member = Member::getInstance(); // Member 인스턴스
 try {
 	switch (Request::get("mode")) {
 		case "join": // 회원가입 처리
-			$memberInfo = $member->join($in)
+			$memberInfo = $member->join($in);
 			if ($memberInfo) {
 				$success = true;
 				$returnData = $memberInfo;
@@ -45,13 +44,12 @@ try {
 			break;
 		default :
 			if (Request::get("origin") != 'front') {
-				echo "<script>location.replace('/');</script>";
+				echo "<script>location.replace('/login');</script>";
 				exit;
 			}
 	}	
 } catch(Exception $e) {
-	$message = $e->getMessage() . "[".e->getFile()."/".$e->getLine()."]";
+	$message = $e->getMessage();
 }
 
 include_once "../output.php";
-

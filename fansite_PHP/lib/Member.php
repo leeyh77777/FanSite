@@ -62,6 +62,7 @@ class Member {
 				throw new Exception($msg);
 			}
 		}
+
 		/** 필수 항목 체크 E */
 		
 		/** 비밀번호 변경 시도 시 -> 비밀번호 유효성 검사 */
@@ -69,9 +70,8 @@ class Member {
 		
 		/** 휴대전화번호 형식 체크 */
 		$this->checkCellPhone($data['cellPhone']);
-		
-		$cellPhone = $data['cellPhone']?preg_match("/[^0-9]/", "", $data['cellPhone']):"";
-		
+			
+		$data['cellPhone'] = $data['cellPhone']?preg_replace("/[^0-9]/", "", $data['cellPhone']):"";
 		$addSet = $hash = "";
 		if ($data['memPw']) {
 			$hash = password_hash($data['memPw'], PASSWORD_BCRYPT, ["cost" => 10]);
@@ -111,13 +111,13 @@ class Member {
 		if (!isset($data['memPw']) || !$data['memPw']) {
 			throw new Exception("비밀번호를 입력하세요.");
 		}
-		
+	
 		// 회원정보 조회
 		$info = $this->get($data['memId'], true);// 비번 비교가 필요 하므로 2번째 매개변수 true
 		if (!$info) {
 			throw new Exception("존재하지 않는 회원입니다.");
 		}
-		
+
 		// 비밀번호 체크 
 		$match = password_verify($data['memPw'], $info['memPw']);
 		if (!$match) {
@@ -199,8 +199,8 @@ class Member {
 			throw new Exception("비밀번호는 8자리 이상 입력하세요.");
 		}
 		
-		if (!preg_match("/[0-9]/", $memPw) || !preg_match("/[a-z]/i", $memPw) || !preg_match("/[~!@#$%^&*()]/", $memPw)) {
-			throw new Exception("비밀번호는 1개이상 알파벳, 숫자, 특수문자로 입력하세요.");
+		if (!preg_match("/[0-9]/", $memPw) || !preg_match("/[a-z]/i", $memPw)) {
+			throw new Exception("비밀번호는 1개이상 알파벳, 숫자로 입력하세요.");
 		}
 		
 		// 비밀번호 확인 
@@ -236,7 +236,7 @@ class Member {
 		
 		$sql = "SELECT * FROM member WHERE {$field} = :{$field}";
 		$stmt = $this->db->prepare($sql);
-		$stmt->bindValue(":{$field}", $memNo, PDO::PARAM_INT);
+		$stmt->bindValue(":{$field}", $memNo);
 		$result = $stmt->execute(); // true, false
 		if (!$result) {
 			$errorInfo = $this->db->errorInfo(); 

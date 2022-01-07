@@ -9,11 +9,11 @@ class News {
 	
 	/** 필수 입력항목 */
 	private $required = [
-		memNo : "회원만 사용가능한 서비스 입니다.",
-		status: "뉴스 구분을 선택하세요",
-		subject : "뉴스명을 입력하세요.",
-		content : "뉴스내용을 입력하세요.",
-	]
+		"memNo" => "회원만 사용가능한 서비스 입니다.",
+		"status" => "뉴스 구분을 선택하세요",
+		"subject" => "뉴스명을 입력하세요.",
+		"content" => "뉴스내용을 입력하세요.",
+	];
 	
 	private function __construct() {
 		$this->db = DB::getInstance();
@@ -28,7 +28,7 @@ class News {
 	}
 	
 	/** 뉴스 추가 */
-	public function addNews(data) {
+	public function addNews($data) {
 		
 		$this->checkData($data); // 데이터 유효성 검사
 		
@@ -50,17 +50,13 @@ class News {
 	}
 	
 	/** 작업 수정 */
-	public function editNews(data) {
+	public function editNews($data) {
 		$this->required['idx'] = "뉴스등록번호가 누락되었습니다.";
 		$this->checkData($data);
 		
 		$info = $this->get($data['idx']);
 		if (!$info) {
 			throw new Exception("수정할 뉴스내역이 없습니다.");
-		}
-		
-		if (!info['memNo'] != $data['memNo']) {
-			throw new Exception("본인이 작성한 뉴스내역만 수정 가능합니다.");
 		}
 		
 		$sql = "UPDATE newslist
@@ -94,16 +90,15 @@ class News {
 	 *
 	 * @param status - actor, singer, etc
 	 */
-	public function getList(memNo, status) {
+	public function getList($status) {
 		$sql = "SELECT * FROM newslist WHERE status = :status ORDER BY regDt DESC";
 		$stmt = $this->db->prepare($sql);
-		$stmt->bindValue(":memNo", $memNo, PDO::PARAM_INT);
 		$stmt->bindValue(":status", $status);
 		$result = $stmt->execute();
 		
 		$rows = [];
 		while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-			array_push($rows, row);
+			array_push($rows, $row);
 		}
 		
 		return $rows;
@@ -126,7 +121,7 @@ class News {
 		
 		$data = $stmt->fetch(PDO::FETCH_ASSOC);
 		if ($data) {
-			$data['regdt'] = date("Y.m.d", strtotime($data['regDt']));
+			$data['regDt'] = date("Y.m.d", strtotime($data['regDt']));
 			$data['contentHtml'] = nl2br($data['content']);
 		}
 		
@@ -134,12 +129,12 @@ class News {
 	}
 	
 	/** 데이터 유효성 검사 */
-	public function checkData(data) {
-		if (data['mode'] == 'edit') {
+	public function checkData($data) {
+		if ($data['mode'] == 'edit') {
 			$this->required['idx'] = "뉴스등록번호가 누락되었습니다.";
 		}
 		foreach ($this->required as $key => $msg) {
-			if (!isset(data[$key]) || ($data[$key] && trim($data[$key]) == "")) {
+			if (!isset($data[$key]) || ($data[$key] && trim($data[$key]) == "")) {
 				throw new Exception($msg);
 			}
 		}

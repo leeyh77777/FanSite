@@ -13,7 +13,7 @@ class File {
 	
 	public static function getInstance() {
 		if (!self::$instance) {
-			self::$instance = new Member();
+			self::$instance = new File();
 		}
 		
 		return self::$instance;
@@ -25,7 +25,9 @@ class File {
 			throw new Error("잘못된 접근입니다.");
 		}
 		$image = $data['fileType'];
-		if(strpos($image,'image') === false){
+		$typeImage = 'image';
+		$pos = strpos($image, $typeImage);
+		if($pos === false){
 			throw new Error("이미지 형식의 파일만 업로드 가능합니다.");
 		}
 		$sql = "INSERT INTO fileinfo (fileName, fileType) VALUES (:fileName, :fileType)";
@@ -38,19 +40,23 @@ class File {
 			throw new Exception(implode("/", $errorInfo));
 		}
 		
-		$file_url = "../public/upload/$data['fileName']";
-		$ext = ($file_url, PATHINFO_EXTENSION);
+		$fileName = $data['fileName'];
+		$ext = pathinfo($fileName, PATHINFO_EXTENSION);
+		$ext = $ext?".".$ext:"";
 		$idx = $this->db->lastInsertId();
-		$pth = file_get_contents("../public/upload/".$idx.$ext);
+		$upload = __DIR__ . "/../upload/";
+		if(!file_exists($upload)) {
+			mkdir($upload, 0777, true);
+		}
+		$pth = $upload.$idx.$ext;
 		$content = $data['data'];
-		$buffers = base64_encode($content);
+		$buffers = base64_decode($content);
 		file_put_contents($pth, $buffers);
 		
 		/** 파일 업로드 후 저장된 파일 정보 전송 */
 		$fileInfo = $this->get($idx);
 		
 		return $fileInfo;
-		
 	}
 	
 	/**
@@ -58,7 +64,7 @@ class File {
 	 *
 	 */
 	public function get($idx) {
-		$sql = "SELECT * FROM fileinfo WHERE idx = ?";
+		$sql = "SELECT * FROM fileinfo WHERE idx = :idx";
 		$stmt = $this->db->prepare($sql);
 		$stmt->bindValue(":idx", $idx, PDO::PARAM_INT);
 		$result = $stmt->execute();
@@ -66,10 +72,12 @@ class File {
 			return false;
 		}
 		$info = $stmt->fetch(PDO::FETCH_ASSOC);
-		$file_url = $info['fileName'];
-		$ext = ($file_url, PATHINFO_EXTENSION);
-		$info['imageUrl'] = "upload/".$idx.$ext;
-		$info['imagePath'] = file_get_contents("../upload/".$idx.$ext);
+		$fileName = $info['fileName'];
+		$ext = pathinfo($fileName, PATHINFO_EXTENSION);
+		$ext = $ext?".".$ext:"";
+		$info['imageUrl'] = "/upload/".$idx.$ext;
+		$upload = __DIR__ . "/../upload/";
+		$info['imagePath'] = $upload.$idx.$ext;
 		
 		return $info;
 	}

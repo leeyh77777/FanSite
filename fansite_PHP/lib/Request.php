@@ -8,8 +8,8 @@ class Request {
 	 * @param $default - $key값에 해당하는 값이 없을 경우
 	 */
 	public static function get($key, $default = null) {
-		$inputData = json_decode(file_get_contents("PHP://input"), true);
-		
+		//$inputData = json_decode(file_get_contents("PHP://input"), true);
+		$inputData = $_POST ?? [];
 		$value = isset($inputData[$key])?$inputData[$key]:null;
 		
 		$value = $value?$value:$default;

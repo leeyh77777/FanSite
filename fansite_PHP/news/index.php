@@ -7,10 +7,15 @@ include_once "../common.php"; // 공통 정의 부분
 $news = News::getInstance();
 
 try {
+	/** 회원 전용 서비스 체크 */
+	if (!Request::get("memNo")) {
+		throw new Exception("회원전용 서비스 입니다.");
+	}
+	
 	switch(Request::get("mode")) {
 		/** 뉴스 추가 */
 		case "add" :
-			$idx = $news.addNews($in);
+			$idx = $news->addNews($in);
 			if (!$idx) {
 				throw new Exception("뉴스등록을 실패하였습니다.");
 			}
@@ -20,9 +25,9 @@ try {
 			break;
 		/** 뉴스 수정 */
 		case "edit" :
-			$result = $news.editNews($in);
+			$result = $news->editNews($in);
 			if (!$result) {
-				throw new Error("뉴스수정을 실패하였습니다.");
+				throw new Exception("뉴스수정을 실패하였습니다.");
 			}
 			
 			$success = true;
@@ -52,13 +57,8 @@ try {
 			break;
 		/** 뉴스 목록 */
 		case "getList" :
-			if (!Request::get("memNo")) {
-				throw new Exception("회원전용 서비스 입니다.");
-			}
-			
-			$memNo = Request::get("memNo", 0);
 			$status = Request::get("status", "etc");
-			$result = $news->getList($memNo, $status);
+			$result = $news->getList($status);
 			if (!$result) {
 				throw new Exception("뉴스 목록 조회 실패");
 			}

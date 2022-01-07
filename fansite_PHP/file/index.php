@@ -5,7 +5,6 @@ include_once "../common.php"; // 공통 정의 부분
  *
  */
 $file = File::getInstance();
-
 try {
 	switch(Request::get("mode")) {
 		case "upload" :
@@ -18,7 +17,7 @@ try {
 			$returnData = $result;
 		break;
 	default :
-		if (Request::get("origin") != 'front') {
+		if ($_SERVER['REQUEST_METHOD'] == 'GET' && Request::get("origin") != 'front') {
 			echo "<script>location.replace('/');</script>";
 			exit;
 		}
@@ -27,4 +26,4 @@ try {
 	$message = $e->getMesssage();
 }
 
-include_once "../ouput.php";
+include_once "../output.php";

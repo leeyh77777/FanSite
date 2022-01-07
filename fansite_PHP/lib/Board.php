@@ -9,9 +9,9 @@ class Board {
 	
 	/** 필수 입력항목 */
 	private $required = [
-		subject : "제목을 입력하세요.",
-		content : "게시글 내용을 입력하세요.",
-	],
+		"subject" => "제목을 입력하세요.",
+		"content" => "게시글 내용을 입력하세요.",
+	];
 	
 	private function __construct() {
 		$this->db = DB::getInstance();
@@ -26,11 +26,11 @@ class Board {
 	}
 	
 	/** 게시글 추가 */
-	public function add(data) {
-		this->checkData($data); // 데이터 유효성 검사
+	public function add($data) {
+		$this->checkData($data); // 데이터 유효성 검사
 		
 		$sql = "INSERT INTO board ( poster, subject, content )
-							VALUES ( :poster, :subjet, :content )";
+							VALUES ( :poster, :subject, :content )";
 							
 		$stmt = $this->db->prepare($sql);
 		$stmt->bindValue(":poster", $data['poster']);
@@ -54,7 +54,7 @@ class Board {
 		$result = $stmt->execute();
 		
 		$rows = [];
-		while($row = $stmt->fetch(PDO::PARAM_INT)) {
+		while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 			array_push($rows, $row);
 		}
 		
@@ -62,7 +62,7 @@ class Board {
 	}
 	
 	/** 게시글 보기 */
-	public function view(idx) {
+	public function view($idx) {
 		$sql = "SELECT * FROM board WHERE idx = :idx";
 		$stmt = $this->db->prepare($sql);
 		$stmt->bindValue(":idx", $idx, PDO::PARAM_INT);
@@ -82,7 +82,7 @@ class Board {
 	}
 	
 	/** 게시글 수정 */
-	public function edit(data) {
+	public function edit($data) {
 		$this->required['idx'] = "게시글 등록번호가 누락되었습니다.";
 		$this->checkData($data);
 		
@@ -108,7 +108,7 @@ class Board {
 	}
 	
 	/** 게시글 삭제 */
-	public function delete(idx) {
+	public function delete($idx) {
 		$sql = "DELETE FROM board WHERE idx = :idx";
 		$stmt = $this->db->prepare($sql);
 		$stmt->bindValue(":idx", $idx, PDO::PARAM_INT);

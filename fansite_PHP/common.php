@@ -10,9 +10,9 @@ include "lib/File.php";
 include "lib/Board.php";
 include "lib/News.php";
 
-$inputData = file_get_contents("PHP://input");
-$in = json_decode($inputData, true);
-
+//$inputData = file_get_contents("PHP://input");
+//$in = json_decode($inputData, true);
+$in = $_POST ?? [];
 $success = false;
 $returnData = [];
 $message = "";

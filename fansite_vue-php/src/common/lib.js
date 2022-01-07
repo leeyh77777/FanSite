@@ -7,7 +7,7 @@ export default {
             if (data && data instanceof FormData) {
                 data = this.$formDataToJson(data);
             }
-            
+
             if (typeof data != 'object') {
                 return;
             }
@@ -18,12 +18,23 @@ export default {
             }
             
             data.origin = "front";
+            const params = {
+                method,
+                url,
+                data,
+            };
+            if (method.toUpperCase().indexOf("POST") != -1) {
+                params.headers = { "Content-Type" : "application/x-www-form-urlencoded"};
+                const _params = new URLSearchParams();
+                for(const key in data) {
+                    _params.append(key, data[key]);
+                }
+                
+                params.data = _params;
+            }
+        
             try {
-                const result = await axios({
-                    method,
-                    url,
-                    data,
-                });
+                const result = await axios(params);
                 return result.data;
             } catch (err) {
                 console.error(err);
@@ -57,16 +68,17 @@ export default {
             
             if (this.$store.state.member) {
                 const member = this.$getMember();
-               /** 
-                 * SPA 및 vuex persistent 사용시 데이터 갱신이 안되므로 
-                 * node api 서버 체크 외에 vue에서도 만료시간 체크 
-                 * 만료시간 경과시 로그아웃 처리 
-                 * 
-                 */
-                const expires = new Date(member.tokenExpires).getTime() - (60 * 60 * 1000 * 9);
-                if (Date.now() > expires) {
-                   await this.$logOut();
-                }
+                /** 
+                  * SPA 및 vuex persistent 사용시 데이터 갱신이 안되므로 
+                  * node api 서버 체크 외에 vue에서도 만료시간 체크 
+                  * 만료시간 경과시 로그아웃 처리 
+                  * 
+                  */
+                 const expires = new Date(member.tokenExpires).getTime() + (60 * 60 * 1000 * 9);
+                 const now = Date.now();
+                 if (now > expires) {
+                    await this.$logOut();
+                 }
                 return;
             }
             
@@ -76,10 +88,9 @@ export default {
                 return;
             }
            
-            const apiURL = this.$store.state.apiURL + "/member";
+            const apiURL = this.$store.state.apiURL + "/member/index.php";
             const data = { mode : "get_member", token };
             const result = await this.$request(apiURL, data, "POST");
-            
             if (result.success) {
                 this.$store.commit('setMember', result.data);
             }
@@ -103,7 +114,7 @@ export default {
         },
         /** 파일 업로드  */
         $sendFile(file) {   
-            const apiURL =  this.$store.state.apiURL + "/file";
+            const apiURL =  this.$store.state.apiURL + "/file/index.php";
             return new Promise((resolve, reject) => {
                 if (!file) {
                     reject(new Error("파일이 존재하지 않습니다."));
@@ -114,17 +125,19 @@ export default {
                 reader.onload = function() {
                     if (reader.result) {
                         const base64 = reader.result.split("base64,")[1];
-                        const data = {
-                            mode : "upload",
-                            fileName : file.name,
-                            fileType : file.type,
-                            data : base64,
-                        };
+                        
+                        const params = new URLSearchParams();
+                        params.append("mode", "upload");
+                        params.append("fileName", file.name);
+                        params.append("fileType", file.type);
+                        params.append('data', base64);
+                        
                         
                         axios({
                             method : "POST",
                             url : apiURL,
-                            data,
+                            headers : { 'Content-Type': "application/x-www-form-urlencoded" },
+                            data : params,
                         })
                         .then((result) => {
                             resolve(result.data);
