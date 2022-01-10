@@ -7,7 +7,6 @@ export default {
     methods : {
         /** 게시글 추가 */
         async $add(data) {
-            console.log("url : ", this.requestURL);
             const result = await this.$request(this.requestURL, data, "POST");
             return result;
         },

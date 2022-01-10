@@ -4,7 +4,8 @@ const store = createStore({
     plugins: [createPersistedState()],
     state() {
         return {
-            apiURL : "http://dydhyun.cafe24app.com",
+            //apiURL : "http://dydhyun.cafe24app.com",
+            apiURL : "http://localhost:3000",
             // 로그인 회원 정보
             member : null,
         };

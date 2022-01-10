@@ -17,6 +17,7 @@ router.use(async (req, res) => {
 				} else { // 회원 가입 실패
 					throw new Error("회원가입 실패");
 				}
+				message = "회원가입이 완료되었습니다."
 				break;
 			case "update": // 회원정보 수정
 				const result = await member.update(data);
@@ -24,7 +25,7 @@ router.use(async (req, res) => {
 					throw new Error('회원정보 수정 실패하였습니다.');
 				}
 				success = true;
-				message = "회원정보가 수정되었습니다.";
+				message = "회원정보가 수정되었습니다!";
 				break;
 			case "login" : // 로그인 처리 
 				const token = await member.login(data);
@@ -58,7 +59,10 @@ router.use(async (req, res) => {
 		data : returnData,
 		message
 	};
-	return res.json(result);
+	resultToJson = res.json(result);
+	console.log(result);
+	return resultToJson;
+	
 	
 });
 

@@ -37,7 +37,7 @@
 :five: News : 아이유 뉴스 보기
 ![news2](https://user-images.githubusercontent.com/86813278/147775990-dc415681-0ba4-423a-93cf-d87d14f8bc86.png)
 
-:six: 회원정보 변경(이름, 휴대전화번호 변경)
+:six: 회원정보 변경(비밀번호, 이름, 휴대전화번호 변경)
 ![myinfo](https://user-images.githubusercontent.com/86813278/147776077-934838bb-2ff5-4041-8ba9-77acaa2e8d5e.png)
 
 :seven: 게시판 목록
@@ -87,6 +87,20 @@ app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, 
 ```
 * common/lib.js([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/common/lib.js))
 : 공통 메서드 라이브러리
+```
+1. $request(axios로 비동기 통신)
+	ㄱ. FormData JSON으로 변경
+	ㄴ. data.origin = "front" -> vue 내부 처리확인 용(vue.js 에서 정의된 라우터의 URL이 아닌경우 메인으로 이동)
+	ㄷ. 매개변수 HttpMethod, 요청 url,  JSON Data를 비동기로 통신한다.
+
+2. $showMessage(응답 message 알림)
+
+3. $loginInit(로그인 유지) 
+	ㄱ. 변수 expires는 멤버의 tokenExpires를 getTime()으로 밀리초로 반환
+	ㄴ. 현재의 밀리초(Date.now())가 expires보다 커지면 $logout()로 로그아웃 처리
+	ㄷ. 세션아이디로 토큰을 가져오고 토큰으로 member Data를 가져온다
+	ㄹ. 가져온 member Data를 $store의 setMember의 대입해 로컬스토리지 vuex의 member의 저장
+```
 
 * bootstrap.js([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/bootstrap.js))
 : 초기 공통 처리
@@ -118,13 +132,8 @@ app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, 
 * $join(data)([여기를 클릭](https://github.com/leeyh77777/FanSite/blob/main/fansite_vue/src/views/member/Join.vue))
 : 회원가입 로직
 ```
-1.common/lib.js : 
-ㄱ. $request(url, data, method)메서드로 서버 데이터 요청(axios)
-ㄴ. data.origin = "front" -> vue 내부 처리확인 용(vue.js 에서 정의된 라우터의 URL이 아닌경우 메인을 이동)
-
-2.models/member.js/$join(data) 메서드 실행 :
-ㄱ. await this.$request(this.requestURL, data, "POST");
-ㄴ. 위의 $request(url, data, method)메서드로 서버데이터 요청(axios)
+1. models/member.js/$join(data) 메서드 실행
+2. $request(url, data, method)메서드로 서버데이터 요청(axios)
 ```
 
 ### 3. 회원정보 수정
@@ -244,7 +253,11 @@ app.use(router).mount('#app') /** App.vue /router/index.js로 라우터 설정, 
 ```
 1. url에 "/file" 추가
 2. 파일 유무 확인후 에러처리
-3. axio로 서버에 요청(mode : upload, filename, filetype, data : base64)
+3. readAsDataURL()메소드로 파일의 URL을 불러온다.
+4. readAsDataURL 성공시 onload가 실행 되어 url에서 'base64,'를 제거 하여 data에 바인딩
+5. axio로 서버에 요청(mode : upload, filename, filetype, data : base64)
+6. 백엔드에서 요청데이터로 업로드후 imageUrl을 추가 하여 파일정보 전송
+7. 게시판에서 이미지 업로드시 "<img src='" + this.$store.state.apiURL + data.data.imageUrl + "'>"로 이미지추가
 ```
 
 ### 7. 뉴스

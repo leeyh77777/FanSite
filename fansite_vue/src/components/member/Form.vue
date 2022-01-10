@@ -59,6 +59,7 @@ export default {
                     frm.memPwRe.value = "";
                 }
             }
+            console.log("result", result);
             if (result.message) {
                 this.showMessage(result.message);
                 

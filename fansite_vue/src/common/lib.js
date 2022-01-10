@@ -39,7 +39,6 @@ export default {
             for (let field of data.entries()) {
                 json[field[0]] = field[1];
             }
-
             return json;
         },
         $showMessage(obj, message) {
@@ -63,7 +62,7 @@ export default {
                  * 만료시간 경과시 로그아웃 처리 
                  * 
                  */
-                const expires = new Date(member.tokenExpires).getTime() + (60 * 60 * 1000 * 9);
+                const expires = new Date(member.tokenExpires).getTime() - (60 * 60 * 1000 * 9);
                 if (Date.now() > expires) {
                    await this.$logOut();
                 }

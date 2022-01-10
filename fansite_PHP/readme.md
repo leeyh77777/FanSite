@@ -15,15 +15,13 @@ Mysql 데이터베이스 연동
 	ㄷ.header("Access-Control-Allow-Methods: *");
 		// HTTP 메소드 허용
 	ㄹ.header("Content-Type: application/json; charset=utf-8");
-		// 한글 표기
+		// 데이터 통신시 JSON 사용 & 한글 표기
 
 2. 라이브러리 include(DB관련 기능 클래스 인스턴스 생성후 사용)
 
-3. $inputData 정의
-	ㄱ.$inputData = file_get_contents("PHP://input");
-		// vue에서 보내는 JSON데이터를 받기위해 사용
-	ㄴ.$in = json_decode($inputData, true);
-		// $inputData(JSON)를 PHP배열로 변환
+3. inputData 정의
+$in = $_POST ?? [];
+: POST메소드로 전달된 데이터를 받는다 . POST 메서드가 NULL 이면 PHP배열
 ```
 
 * [output.php](https://github.com/leeyh77777/FanSite/blob/main/fansite_PHP/output.php)

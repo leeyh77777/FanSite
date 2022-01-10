@@ -90,7 +90,7 @@ export default {
             }
         },
         async addImage(e) {
-          
+        
             const target = e.target;
             const file = target.files[0];
             const data = await this.$sendFile(file);

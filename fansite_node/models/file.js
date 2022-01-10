@@ -64,8 +64,8 @@ const file = {
 			const info = rows[0];
 			const ext = path.extname(info.fileName);
 			info.imageUrl = "/upload/" + idx + ext;
-			info.imagePath = path.join(__dirname, '../upload/' + idx + ext);
-			
+			info.imagePath = path.join(__dirname, '..public/upload/' + idx + ext);
+			console.log("info : ", info);
 			return info;
 		} catch (err) {
 			console.error(err);

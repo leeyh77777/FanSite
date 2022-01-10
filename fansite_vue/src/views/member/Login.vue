@@ -33,6 +33,7 @@ export default {
             e.preventDefault();
             const formData = new FormData(this.$refs.frmLogin);
             const result = await this.$login(formData);
+            console.log("result", result);
             if (result.success) {
                 this.memId = "";
                 this.memPw = "";
